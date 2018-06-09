@@ -10,9 +10,10 @@ require('dotenv').config();
 const app = express();
 const port = 3005;
 
-// massive(process.env.CONNECTION_STRING).then(db => {
-//     app.set("db", db);
-// });
+
+massive(process.env.CONNECTION_STRING).then(db => {
+    app.set("db", db);
+});
 
 app.use(bodyParser.json());
 
