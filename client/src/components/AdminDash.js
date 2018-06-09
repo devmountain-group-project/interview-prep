@@ -1,11 +1,14 @@
+import React, { Component } from 'react'
+import { Link, Route } from 'react-router-dom'
 
-import React, {Component} from 'react'
 
 class AdminDash extends Component {
     render(){
-        return{
-
-        }
+        return(
+            <div>
+                AdminDash
+            </div>
+        )
     }
 }
 
