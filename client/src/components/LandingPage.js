@@ -3,9 +3,11 @@ import React, {Component} from 'react'
 
 class LandingPage extends Component {
     render(){
-        return{
-
-        }
+        return(
+            <div>
+                Login
+            </div>
+        )
     }
 }
 
