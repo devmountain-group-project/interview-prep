@@ -6,6 +6,7 @@ const massive = require('massive');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 require('dotenv').config();
+const AWS = require('./Controllers/AWSController')
 
 const app = express();
 const port = 3005;
@@ -72,6 +73,15 @@ app.use(bodyParser.json());
 //         return done(null,user);
 //     });
 // });
+
+// AWS ENDPOINT
+app.post('/api/aws', AWS.sign)
+
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '/client/build/index.html'));
+});
+
+// SERVER LISTEN
 
 app.listen(port, () => {
     console.log('Listening on port ', port);
