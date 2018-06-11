@@ -17,7 +17,7 @@ class Submission extends Component {
                     <div className= 'file-preview'>
                         {this.state.testFile}
                     </div> :
-                    <AddFile/>
+                    <AddFile updateTestfile= {this.updateTestFile}/>
                 }
             </div>
         )
