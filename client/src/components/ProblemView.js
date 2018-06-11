@@ -1,10 +1,13 @@
 import React, {Component} from 'react'
+import Embed from 'react-runkit'
 
 class ProblemView extends Component {
     render(){
         return(
             <div>
-                Problem View
+                <div className= 'code-editor'>
+                    <Embed/>
+                </div>
             </div>
         )
     }
