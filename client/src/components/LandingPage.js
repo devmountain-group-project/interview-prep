@@ -6,6 +6,7 @@ class LandingPage extends Component {
         return(
             <div>
                 Login
+                <a href="http://localhost:3005/auth"><button>Login</button></a>
             </div>
         )
     }
