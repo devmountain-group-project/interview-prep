@@ -8,6 +8,9 @@ const Auth0Strategy = require('passport-auth0');
 require('dotenv').config();
 const AWS = require('./Controllers/AWSController')
 
+//middleware
+const isAuthenticated = require('./middleware/isAuthenticated')
+
 const app = express();
 const port = 3005;
 
