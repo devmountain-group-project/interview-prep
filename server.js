@@ -129,9 +129,9 @@ app.get("/auth/me", (req, res) => {
 // console.log(22222, "Config")
 // jasmine.execute();
 
-app.get('*', (req, res)=>{
-  res.sendFile(path.join(__dirname, '/client/build/index.html'));
-});
+// app.get('*', (req, res)=>{
+//   res.sendFile(path.join(__dirname, '/client/build/index.html'));
+// });
 
 // AWS ENDPOINT
 app.post('/api/aws', AWS.sign)
