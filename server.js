@@ -9,6 +9,8 @@ const Jasmine = require('jasmine');
 const jasmine = new Jasmine();
 const JasmineController = require('./Controllers/Jasmine/JasmineController');
 const AWS = require('./Controllers/AWSController');
+const fs = require('fs')
+const FSC = require('./Controllers/FSController')
 require('dotenv').config();
 const path = require('path');
 
@@ -114,30 +116,16 @@ app.get("/auth/me", (req, res) => {
   } else {
     return res.status(404).send("user not authenticated");
   }
-});
-
-// jasmine.loadConfig({
-//     spec_dir: 'spec',
-//     spec_files: [
-//         'indexTest.js'
-//
-//     ],
-//     helpers: [
-//         'helpers/**/*.js'
-//     ]
-// });
-// console.log(22222, "Config")
-// jasmine.execute();
-
-// app.get('*', (req, res)=>{
-//   res.sendFile(path.join(__dirname, '/client/build/index.html'));
-// });
+}); 
 
 // AWS ENDPOINT
 app.post('/api/aws', AWS.sign)
 
 // JASMINE ENDPOINT
 app.post('/api/runTest', JasmineController.runTest);
+
+// FS ENDPOINTS
+app.post('/api/writeFile', FSC.write)
 
 // SERVER LISTEN
 
