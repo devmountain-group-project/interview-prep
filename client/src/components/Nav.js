@@ -1,13 +1,10 @@
 import React, {Component} from 'react'
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../css/main.css'
 import '../css/nav.css'
 
 
 class Nav extends Component {
-    constructor() {
-        super()
-    }
 
     render() {
         return (
