@@ -13,12 +13,8 @@ class LandingPage extends Component {
                     <p className ="text copy">The very fact that you're aware of suffering is enough reason to be overjoyed that you're alive and can experience it. No pressure. Just relax and watch it happen. Isn't that fantastic? This is your world, whatever makes you happy you can put in it. Go crazy.</p>
                 </div>
                 <div className="button-contain">
-                    <button className="button1">Login</button>
+                    <a href="http://localhost:3005/auth"><button className="button1">Login</button></a>
                 </div>
-
-                Login
-                <a href="http://localhost:3005/auth"><button>Login</button></a>
-
             </div>
         )
         

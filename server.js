@@ -7,6 +7,7 @@ const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 require('dotenv').config();
 const AWS = require('./Controllers/AWSController')
+const path = require('path');
 
 //middleware
 const isAuthenticated = require('./middleware/isAuthenticated')
@@ -91,7 +92,7 @@ app.get(
 
 app.get('/auth/logout', (req, res) => {
   req.logout()
-  res.redirect('/#/')
+  res.redirect('http://localhost:3000/#/')
 });
 
 app.get("/auth/me", (req, res) => {
@@ -108,10 +109,6 @@ app.get("/auth/me", (req, res) => {
 
 // AWS ENDPOINT
 app.post('/api/aws', AWS.sign)
-
-app.get('*', (req, res)=>{
-  res.sendFile(path.join(__dirname, '/client/build/index.html'));
-});
 
 // SERVER LISTEN
 
