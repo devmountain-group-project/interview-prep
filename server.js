@@ -7,6 +7,9 @@ const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 require('dotenv').config();
 
+//middleware
+const isAuthenticated = require('./middleware/isAuthenticated')
+
 const app = express();
 const port = 3005;
 
