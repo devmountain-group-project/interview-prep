@@ -1,0 +1,47 @@
+@font-face{
+    font-family: muli;
+    src: url('https://fonts.googleapis.com/css?family=Muli:300');
+}
+
+body {
+    background-color: #FCFFF5;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {  
+    font-weight: 900;
+    margin: 50px auto;
+    font-size: 4.3em;
+}
+
+.text {
+    font-family: 'Muli', sans-serif;
+    color: #1B3947;
+    text-align: center;
+}
+
+.copy {
+    font-weight: 200;
+    margin: 30px auto;
+    font-size: 1.6em;
+    width: 60%;
+    line-height: 1.3em
+}
+
+.button1 {
+    background-color: #1B3947;
+    color: #91AA9D;
+    padding: 4pt 10pt;
+    font-size: 1.3em;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.button-contain {
+    margin: 20px auto;
+    text-align: center;
+    height: 50px;
+    
+}
