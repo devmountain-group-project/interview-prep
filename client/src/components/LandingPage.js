@@ -5,6 +5,7 @@ class LandingPage extends Component {
     render(){
         return(
             <div>
+
                 <div>
                     <h1 className="text header">Welcome to Interview Prepper</h1>
                     <p className ="text copy">Let's make some happy little clouds in our world. Trees live in your fan brush, but you have to scare them out. Of course he's a happy little stone, cause we don't have any other kind. Let's put some happy little clouds in our world. Trees cover up a multitude of sins. From all of us here, I want to wish you happy painting and God bless, my friends.</p>
@@ -14,6 +15,10 @@ class LandingPage extends Component {
                 <div className="button-contain">
                     <button className="button1">Login</button>
                 </div>
+
+                Login
+                <a href="http://localhost:3005/auth"><button>Login</button></a>
+
             </div>
         )
         

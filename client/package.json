@@ -6,11 +6,12 @@
     "axios": "^0.18.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-dropzone": "^4.2.11",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
+    "react-runkit": "^0.9.0",
     "react-scripts": "1.1.4",
-    "react-dropzone": "^4.2.11",
     "redux": "^4.0.0",
     "redux-promise-middleware": "^5.1.1"
   },
@@ -19,5 +20,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "proxy": "http://localhost:3005"
 }
