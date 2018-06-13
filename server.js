@@ -118,7 +118,6 @@ app.get("/auth/me", (req, res) => {
   }
 }); 
 
-
 // AWS ENDPOINT
 app.post('/api/aws', AWS.sign)
 
