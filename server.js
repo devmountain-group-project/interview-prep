@@ -10,6 +10,7 @@ const jasmine = new Jasmine();
 const JasmineController = require('./Controllers/Jasmine/JasmineController');
 const AWS = require('./Controllers/AWSController');
 require('dotenv').config();
+const path = require('path');
 
 
 //middleware
@@ -104,7 +105,7 @@ app.get(
 
 app.get('/auth/logout', (req, res) => {
   req.logout()
-  res.redirect('/#/')
+  res.redirect('http://localhost:3000/#/')
 });
 
 app.get("/auth/me", (req, res) => {
@@ -128,13 +129,12 @@ app.get("/auth/me", (req, res) => {
 // console.log(22222, "Config")
 // jasmine.execute();
 
-
-// AWS ENDPOINT
-app.post('/api/aws', AWS.sign)
-
 app.get('*', (req, res)=>{
   res.sendFile(path.join(__dirname, '/client/build/index.html'));
 });
+
+// AWS ENDPOINT
+app.post('/api/aws', AWS.sign)
 
 // JASMINE ENDPOINT
 app.post('/api/runTest', JasmineController.runTest);

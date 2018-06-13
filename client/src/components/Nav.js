@@ -21,7 +21,7 @@ class Nav extends Component {
                 <h1 className="text nav_header">Interview Prepper</h1>
                 </div>              
                 <div className="logout">
-                     <Link to={`/`}><h2 className="text nav_text logout_text">Logout</h2></Link>
+                     <a href="http://localhost:3005/auth/logout"><h2 className="text nav_text logout_text">Logout</h2></a>
                 </div>              
             </div>
         )
