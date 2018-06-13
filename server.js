@@ -5,8 +5,12 @@ const cors = require('cors');
 const massive = require('massive');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
+const Jasmine = require('jasmine');
+const jasmine = new Jasmine();
+const JasmineController = require('./Controllers/Jasmine/JasmineController');
+const AWS = require('./Controllers/AWSController');
 require('dotenv').config();
-const AWS = require('./Controllers/AWSController')
+
 
 //middleware
 const isAuthenticated = require('./middleware/isAuthenticated')
@@ -56,7 +60,7 @@ passport.use(
             username: profile.displayName,
             auth_id: profile.id
           }
-          
+
           db.create_user(userObj).then(results => {
             let user = results[0];
             return done(null, user)
@@ -78,6 +82,15 @@ passport.deserializeUser((id, done) => {
     let user = results[0];
     return done(null, user);
   });
+});
+
+jasmine.onComplete(function(passed) {
+    if(passed) {
+        console.log('All specs have passed');
+    }
+    else {
+        console.log('At least one spec has failed');
+    }
 });
 
 app.get("/auth", passport.authenticate("auth0"));
@@ -102,8 +115,18 @@ app.get("/auth/me", (req, res) => {
   }
 });
 
-
-
+// jasmine.loadConfig({
+//     spec_dir: 'spec',
+//     spec_files: [
+//         'indexTest.js'
+//
+//     ],
+//     helpers: [
+//         'helpers/**/*.js'
+//     ]
+// });
+// console.log(22222, "Config")
+// jasmine.execute();
 
 
 // AWS ENDPOINT
@@ -112,6 +135,9 @@ app.post('/api/aws', AWS.sign)
 app.get('*', (req, res)=>{
   res.sendFile(path.join(__dirname, '/client/build/index.html'));
 });
+
+// JASMINE ENDPOINT
+app.post('/api/runTest', JasmineController.runTest);
 
 // SERVER LISTEN
 
