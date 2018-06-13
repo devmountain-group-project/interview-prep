@@ -1,0 +1,41 @@
+.nav_contain {
+    background-color: #2B3A42;
+    height: 75px;
+    /* padding: 0px 80px 0px 10px; */
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+
+}
+.nav {
+    width: 33%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0px 10px
+}
+
+.nav_text {
+    color: #FCFFF5;
+    padding: 14px 10px;
+    margin: 3px 0px;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.nav_header {
+    text-align: center;
+    font-weight: 600;
+    margin: auto;
+    font-size: 2.5em;
+    color: #FCFFF5;
+}
+
+.logout {
+    width: 40%;
+    display: block;
+}
+.logout_text {
+   /* justify-content: end; */
+    float: right;
+    padding-right: 20px;
+}

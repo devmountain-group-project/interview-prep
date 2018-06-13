@@ -1,10 +1,12 @@
 import React, {Component} from 'react'
+import Nav from './Nav';
 
 class Dashboard extends Component {
     render(){
         return(
             <div>
-                Dashboard
+                <Nav />
+                <h1>Dashboard</h1>
             </div>
         )
     }
