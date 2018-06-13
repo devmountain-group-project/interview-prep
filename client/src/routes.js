@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {HashRouter, Switch, Route} from 'react-router-dom';
+import React from 'react';
+import {Switch, Route} from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import AdminDash from './components/AdminDash';
 import LandingPage from './components/LandingPage';
