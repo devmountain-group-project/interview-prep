@@ -1,0 +1,20 @@
+.problem-view {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-container {
+  width: 50vw;
+}
+.instructions {
+  height: 50vh;
+
+}
+.spec-runner {
+  height: 50vh;
+}
+
+.code-editor {
+  width: 50vw;
+  height: 75vh;
+}
