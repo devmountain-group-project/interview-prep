@@ -1,12 +1,20 @@
 import React, {Component} from 'react'
 import Embed from 'react-runkit'
+import { connect } from 'react-redux'
 import axios from 'axios'
+import './../css/problemView.css';
+import{getProblemByID, id, problem} from './../redux/reducers/problemReducer.js'
 
 class ProblemView extends Component {
-    state ={
+  constructor() {
+    super();
+    this.state ={
         code: '',
         notebookRef: undefined
     }
+  }
+
+
 
     // RETURNS A NOTEBOOK OBJECT
     storeRef = (notebook) =>{
@@ -27,19 +35,50 @@ class ProblemView extends Component {
         })
     }
 
+    componentDidMount() {
+      //Loading instructions
+        this.props.getProblemByID(this.props.problemReducer.id);
+    }
+
+
     render(){
+      const { id, problem } = this.props;
+      console.log('zach problem', this.props)
+      if(this.props.problemReducer && this.props.problemReducer.problem[0]) {
+        console.log('getting in here')
         return(
-            <div>
+
+            <div className= 'problem-view'>
+                <div className= 'left-container'>
+                  <div className= 'instructions'>
+                  {this.props.problemReducer.problem[0].instructions}
+                  </div>
+                  <div className= 'spec-runner'>
+                    SpecRunner
+                  </div>
+                </div>
                 <div className= 'code-editor'>
                     <Embed onLoad = {(e) => {this.storeRef(e)}} onEvaluate={() => {
                         this.getNotebook()
-                        
-                        
+
+
                     }}/>
                 </div>
             </div>
         )
+      } else {
+        return <div>
+                  <p>loading</p>
+                </div>
+      }
     }
 }
 
-export default ProblemView
+
+function mapStateToProps(state) {
+  console.log(22222, state)
+    return state;
+
+  }
+
+export default connect( mapStateToProps, { getProblemByID } )( ProblemView );
