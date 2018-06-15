@@ -13,7 +13,7 @@ module.exports={
     delete: (req, res, next) => {
         fs.unlink('TempFiles/testFile.js', (err) => {
             if (err) throw err;
-            console.log('successfully deleted /tmp/hello');
+            console.log('successfully deleted TempFiles/testFile.js');
           })
     },
 }

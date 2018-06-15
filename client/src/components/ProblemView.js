@@ -10,7 +10,8 @@ class ProblemView extends Component {
     super();
     this.state ={
         code: '',
-        notebookRef: undefined
+        notebookRef: undefined,
+        finalSubmit: true
     }
   }
 
@@ -30,10 +31,22 @@ class ProblemView extends Component {
     }
 
     // WRITES TEMP FILE WITH FS
-    writeFile = () =>{
+    writeFile = () => {
         axios.post('api/writeFile', {content: this.state.code}).then(res=>{
         })
     }
+
+
+    // DELETES TEMP FILE WITH FS
+    deleteFile = () => {
+        axios.delete('/api/deleteFile')
+    }
+    
+    // FINAL SUBMISSION ONCE TESTS HAVE PASSED
+    submit = () => {
+        this.setState({finalSubmit: false}, this.deleteFile())
+    }
+
 
     componentDidMount() {
       //Loading instructions
@@ -41,10 +54,12 @@ class ProblemView extends Component {
     }
 
 
+
     render(){
       const { id, problem } = this.props;
       if(this.props.problemReducer && this.props.problemReducer.problem[0]) {
         return(
+
 
             <div className= 'problem-view'>
                 <div className= 'left-container'>
@@ -55,14 +70,20 @@ class ProblemView extends Component {
                     SpecRunner
                   </div>
                 </div>
+
                 <div className= 'code-editor'>
+                    {/* THIS IS THE RUNKIT COMPONENT */}
                     <Embed onLoad = {(e) => {this.storeRef(e)}} onEvaluate={() => {
                         this.getNotebook()
 
-
-                    }}/>
+                    }} minHeight='500px'/>
                 </div>
+
+                {this.state.finalSubmit ? 
+                    <button onClick={() =>this.submit()}>Final Submission</button> :
+                    null}
             </div>
+    
         )
       } else {
         return <div>
