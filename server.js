@@ -129,6 +129,7 @@ app.post('/api/runTest', JasmineController.runTest);
 
 // FS ENDPOINTS
 app.post('/api/writeFile', FSC.write)
+app.delete('/api/deleteFile', FSC.delete)
 
 //PROBLEM ENDPOINTS
 app.get('/api/getProblem/:problem_id', ProblemController.get)
