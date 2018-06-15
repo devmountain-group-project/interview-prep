@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Embed from 'react-runkit'
 import { connect } from 'react-redux'
 import axios from 'axios'
-import './../css/problemView.css';
+//import './../css/problemView.css';
 import{getProblemByID, id, problem} from './../redux/reducers/problemReducer.js'
 
 class ProblemView extends Component {
@@ -43,9 +43,7 @@ class ProblemView extends Component {
 
     render(){
       const { id, problem } = this.props;
-      console.log('zach problem', this.props)
       if(this.props.problemReducer && this.props.problemReducer.problem[0]) {
-        console.log('getting in here')
         return(
 
             <div className= 'problem-view'>
@@ -76,7 +74,6 @@ class ProblemView extends Component {
 
 
 function mapStateToProps(state) {
-  console.log(22222, state)
     return state;
 
   }

@@ -11,6 +11,7 @@ const JasmineController = require('./Controllers/Jasmine/JasmineController');
 const AWS = require('./Controllers/AWSController');
 const fs = require('fs')
 const FSC = require('./Controllers/FSController')
+const ProblemController = require('./Controllers/ProblemController')
 require('dotenv').config();
 const path = require('path');
 
@@ -96,6 +97,8 @@ jasmine.onComplete(function(passed) {
     }
 });
 
+//Auth0 Endpoints
+
 app.get("/auth", passport.authenticate("auth0"));
 app.get(
   "/auth/callback",
@@ -116,7 +119,7 @@ app.get("/auth/me", (req, res) => {
   } else {
     return res.status(404).send("user not authenticated");
   }
-}); 
+});
 
 // AWS ENDPOINT
 app.post('/api/aws', AWS.sign)
@@ -126,6 +129,9 @@ app.post('/api/runTest', JasmineController.runTest);
 
 // FS ENDPOINTS
 app.post('/api/writeFile', FSC.write)
+
+app.get('/api/getProblem/:problem_id', ProblemController.get)
+
 
 // SERVER LISTEN
 
