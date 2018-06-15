@@ -37,6 +37,12 @@ class ProblemView extends Component {
     }
 
 
+    //LOADING INSTRUCTIONS
+    componentDidMount() {
+        this.props.getProblemByID(this.props.problemReducer.id);
+    }
+
+
     // DELETES TEMP FILE WITH FS
     deleteFile = () => {
         axios.delete('/api/deleteFile')
@@ -48,8 +54,8 @@ class ProblemView extends Component {
     }
 
 
+
     componentDidMount() {
-      //Loading instructions
         this.props.getProblemByID(this.props.problemReducer.id);
     }
 

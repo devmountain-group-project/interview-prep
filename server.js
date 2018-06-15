@@ -16,7 +16,7 @@ require('dotenv').config();
 const path = require('path');
 
 
-//middleware
+//MIDDLEWARE
 const isAuthenticated = require('./middleware/isAuthenticated')
 
 const app = express();
@@ -131,6 +131,7 @@ app.post('/api/runTest', JasmineController.runTest);
 app.post('/api/writeFile', FSC.write)
 app.delete('/api/deleteFile', FSC.delete)
 
+//PROBLEM ENDPOINTS
 app.get('/api/getProblem/:problem_id', ProblemController.get)
 
 
