@@ -22,3 +22,5 @@ function reducer(state = initialState, action){
       payload: axios.get('api/template')
     }
   }
+
+  export default reducer;

@@ -11,7 +11,8 @@ CREATE TABLE problems (
     difficulty VARCHAR,
     company VARCHAR,
     problem_file TEXT,
-    unit_test_file VARCHAR
+    unit_test_file VARCHAR,
+    instructions VARCHAR
 );
 
 CREATE TABLE users_problems_solved (
@@ -27,5 +28,6 @@ CREATE TABLE submissions (
     difficulty VARCHAR,
     company VARCHAR,
     problem_file TEXT,
-    unit_test_file VARCHAR
+    unit_test_file VARCHAR,
+    instructions VARCHAR
 );
