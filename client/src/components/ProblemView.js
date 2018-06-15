@@ -1,11 +1,13 @@
 import React, {Component} from 'react'
 import Embed from 'react-runkit'
 import axios from 'axios'
+import '../css/problemView.css'
 
 class ProblemView extends Component {
     state ={
         code: '',
-        notebookRef: undefined
+        notebookRef: undefined,
+        finalSubmit: true
     }
 
     // RETURNS A NOTEBOOK OBJECT
@@ -22,22 +24,37 @@ class ProblemView extends Component {
     }
 
     // WRITES TEMP FILE WITH FS
-    writeFile = () =>{
+    writeFile = () => {
         axios.post('api/writeFile', {content: this.state.code}).then(res=>{
         })
+    }
+
+    // DELETES TEMP FILE WITH FS
+    deleteFile = () => {
+        axios.delete('/api/deleteFile')
+    }
+    
+    // FINAL SUBMISSION ONCE TESTS HAVE PASSED
+    submit = () => {
+        this.setState({finalSubmit: false}, this.deleteFile())
     }
 
     render(){
         return(
             <div>
+
                 <div className= 'code-editor'>
+                    {/* THIS IS THE RUNKIT COMPONENT */}
                     <Embed onLoad = {(e) => {this.storeRef(e)}} onEvaluate={() => {
                         this.getNotebook()
-                        
-                        
-                    }}/>
+                    }} minHeight='500px'/>
                 </div>
+
+                {this.state.finalSubmit ? 
+                    <button onClick={() =>this.submit()}>Final Submission</button> :
+                    null}
             </div>
+    
         )
     }
 }

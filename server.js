@@ -127,6 +127,7 @@ app.post('/api/runTest', JasmineController.runTest);
 
 // FS ENDPOINTS
 app.post('/api/writeFile', FSC.write)
+app.delete('/api/deleteFile', FSC.delete)
 
 // SERVER LISTEN
 
