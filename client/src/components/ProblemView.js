@@ -35,8 +35,8 @@ class ProblemView extends Component {
         })
     }
 
+    //LOADING INSTRUCTIONS
     componentDidMount() {
-      //Loading instructions
         this.props.getProblemByID(this.props.problemReducer.id);
     }
 
