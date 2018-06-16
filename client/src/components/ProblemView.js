@@ -54,13 +54,6 @@ class ProblemView extends Component {
     }
 
 
-
-    componentDidMount() {
-        this.props.getProblemByID(this.props.problemReducer.id);
-    }
-
-
-
     render(){
       const { id, problem } = this.props;
       if(this.props.problemReducer && this.props.problemReducer.problem[0]) {
