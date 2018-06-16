@@ -1,5 +1,5 @@
 .nav_contain {
-    background-color: #2B3A42;
+    background-color: #3D5F75;
     height: 75px;
     /* padding: 0px 80px 0px 10px; */
     display: flex;
@@ -15,7 +15,7 @@
 }
 
 .nav_text {
-    color: #FCFFF5;
+    color: white;
     padding: 14px 10px;
     margin: 3px 0px;
     text-decoration: none;
@@ -27,7 +27,7 @@
     font-weight: 600;
     margin: auto;
     font-size: 2.5em;
-    color: #FCFFF5;
+    color: white;
 }
 
 .logout {
