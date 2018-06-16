@@ -1,5 +1,26 @@
+
+@font-face { font-family: Muli; 
+            font-style: normal;
+            font-weight: 300;
+            src: url('./Muli/Muli-Regular.ttf');
+        } 
+@font-face { font-family: Muli; 
+            font-style: normal;
+            font-weight: 400;
+            src: url('./Muli/Muli-SemiBold.ttf');
+        }
+@font-face { font-family: Muli; 
+            font-style: normal;
+            font-weight: 600;
+            src: url('./Muli/Muli-Bold.ttf');
+        }
+@font-face { font-family: Muli; 
+            font-style: normal;
+            font-weight: 800;
+            src: url('./Muli/Muli-Black.ttf');
+        }
 body {
-    background-color: #FCFFF5;
+    background-color: #E2EDF8;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,7 +29,15 @@ body {
 .header {  
     font-weight: 900;
     margin: 50px auto;
-    font-size: 4.3em;
+    font-size: 4.5em;
+    line-height: .7;
+}
+
+.header-med {  
+    line-height: .2;
+    font-weight: 600;
+    margin: 50px auto;
+    font-size: 2.5em;
 }
 
 .text {
@@ -26,12 +55,14 @@ body {
 }
 
 .button1 {
-    background-color: #1B3947;
-    color: #91AA9D;
+    background-color: #3D5F75;
+    color: white;
     padding: 4pt 10pt;
     font-size: 1.3em;
-    font-weight: 600;
+    font-weight: 400;
     border-radius: 8px;
+    border: #1B3947;
+    border-width: 3px;
 }
 
 .button-contain {
