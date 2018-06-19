@@ -1,3 +1,7 @@
+a {
+    text-decoration: none;
+}
+
 .nav_contain {
     background-color: #3D5F75;
     height: 75px;
@@ -18,7 +22,7 @@
     color: white;
     padding: 14px 10px;
     margin: 3px 0px;
-    text-decoration: none;
+    text-decoration: none !important;
     font-weight: 400;
 }
 

@@ -1,5 +1,59 @@
 .sub-contain {
     margin-top: 100px;
-    display: flex;
-    justify-content: center;
+    margin-left: 400px;
+}
+
+.dropstyle {
+    background-color: red;
+}
+
+.input-text {
+    font-size: 1.5em;
+    font-family: 'Muli', sans-serif;
+    color: #1B3947;
+    text-align: left;
+    margin: 5px;
+}
+
+.input1 {
+    width: 20%;
+    height: 45px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 1.5em;
+    resize: none;
+    text-align: left;
+    margin-bottom: 10px;
+}
+.input2 {
+    width: 60%;
+    height: 45px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 1.5em;
+    resize: none;
+    text-align: left;
+    margin-bottom: 10px;
+    
+}
+
+.input3 {
+    width: 60%;
+    height: 180px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 1.5em;
+    resize: none;
+    text-align: left;
+    margin-bottom: 10px;
+    
 }
