@@ -27,10 +27,20 @@ class Submission extends Component {
                 </div>
                 
                  <div className="sub-contain">
+                    <form>
+                        <p className="input-text"> Problem name:</p>
+                        <input type="text" name="problemname" className="text input1"></input>
+                        <p className="input-text"> Interview Company:</p>
+                        <input type="text" name="company" className="text input1"></input><br />
+                        <p className="input-text"> Problem Description:</p>
+                        <textarea name="description" className="text input3"></textarea>
+                    </form>
+                    <br />
 
-                    
+                 </div>
+                 <div className="sub-contain">
                     {this.state.testFile ? 
-                        <div className= 'file-preview'>
+                        <div className= 'file-preview dropstyle'>
                             {this.state.testFile}
                         </div> :
                         <AddFile updateTestfile= {this.updateTestFile}/>
