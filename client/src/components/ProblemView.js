@@ -11,7 +11,9 @@ class ProblemView extends Component {
     this.state ={
         code: '',
         notebookRef: undefined,
-        finalSubmit: true
+        finalSubmit: true,
+        problemID: null
+
     }
   }
 
@@ -38,8 +40,8 @@ class ProblemView extends Component {
 
 
     //LOADING INSTRUCTIONS
-    componentDidMount() {
-        this.props.getProblemByID(this.props.problemReducer.id);
+    componentWillMount() {
+        this.props.getProblemByID(this.props.match.params.problem_id);
     }
 
 
@@ -47,12 +49,11 @@ class ProblemView extends Component {
     deleteFile = () => {
         axios.delete('/api/deleteFile')
     }
-    
+
     // FINAL SUBMISSION ONCE TESTS HAVE PASSED
     submit = () => {
         this.setState({finalSubmit: false}, this.deleteFile())
     }
-
 
     render(){
       const { id, problem } = this.props;
@@ -78,11 +79,11 @@ class ProblemView extends Component {
                     }} minHeight='500px'/>
                 </div>
 
-                {this.state.finalSubmit ? 
+                {this.state.finalSubmit ?
                     <button onClick={() =>this.submit()}>Final Submission</button> :
                     null}
             </div>
-    
+
         )
       } else {
         return <div>
