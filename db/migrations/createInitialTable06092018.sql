@@ -12,7 +12,8 @@ CREATE TABLE problems (
     company VARCHAR,
     problem_file TEXT,
     unit_test_file VARCHAR,
-    instructions VARCHAR
+    instructions VARCHAR,
+    name VARCHAR
 );
 
 CREATE TABLE users_problems_solved (
