@@ -1,14 +1,22 @@
 import React, {Component} from 'react'
+import { connect } from 'react-redux';
 import Nav from './Nav';
 import '../css/submission.css'
 import '../css/main.css'
 import AddFile from './AddFile'
+import { addProblem } from '../redux/reducers/problemReducer'
 
 
 class Submission extends Component {
-    state = {
-        testFile: '',
-        fileToTest: ''
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+            testFile: '',
+            fileToTest: '',
+            name: '',
+            instructions: '',
+        }
     }
 
     updateTestFile = (url) => {
@@ -17,6 +25,15 @@ class Submission extends Component {
         console.log(this.state.testFile)
     }
 
+<<<<<<< HEAD
+=======
+    handleAddProblem = () => {
+        this.props.addProblem(this.state.name, this.state.instructions).then( () => {
+            this.setState({name: '', instructions: ''})
+        })
+    }
+
+>>>>>>> master
     render(){
         return(
             <div>
@@ -32,15 +49,20 @@ class Submission extends Component {
                  <div className="sub-contain">
                     <form>
                         <p className="input-text"> Problem name:</p>
-                        <input type="text" name="problemname" className="text input1"></input>
+                        <input type="text" name="problemname" className="text input1" value={this.state.name} onChange={ (e) => this.setState({ name: e.target.value})}></input>
                         <p className="input-text"> Interview Company:</p>
                         <input type="text" name="company" className="text input1"></input><br />
-                        <p className="input-text"> Problem Description:</p>
-                        <textarea name="description" className="text input3"></textarea>
+                        <p className="input-text"> Problem Instructions:</p>
+                        <textarea name="description" className="text input3" value={this.state.instructions} onChange={ (e) => this.setState({ instructions: e.target.value})}></textarea>
                     </form>
                     <br />
 
+                 <div>
+                    <button onClick={this.handleAddProblem}>SUBMIT PROBLEM</button>
                  </div>
+
+                 </div>
+
                  <div className="sub-contain">
                     {this.state.testFile ? 
                         <div className= 'file-preview dropstyle'>
@@ -55,4 +77,8 @@ class Submission extends Component {
     }
 }
 
-export default Submission
+function mapStateToProps (state) {
+    return state;
+}
+
+export default connect(mapStateToProps, { addProblem }) (Submission)
