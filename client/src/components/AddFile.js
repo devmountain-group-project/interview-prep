@@ -26,7 +26,7 @@ class DragAndDropPic extends Component {
       return axios.put(signedUrl, file, options);
     })
     .then(res => {
-        this.props.updateTestFile(res.config.url)
+      this.props.updateTestFile(res.config.url)
     })
     .catch(function (err) {
       console.log(2, err);

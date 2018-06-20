@@ -11,9 +11,12 @@ class Submission extends Component {
         fileToTest: ''
     }
 
-    updateTestFile(file){
-        this.setState({testFile: file})
+    updateTestFile = (url) => {
+        var newUrl= url.substring(0, url.indexOf('?')) 
+        this.setState({testFile: newUrl})
+        console.log(this.state.testFile)
     }
+
     render(){
         return(
             <div>
@@ -43,7 +46,7 @@ class Submission extends Component {
                         <div className= 'file-preview dropstyle'>
                             {this.state.testFile}
                         </div> :
-                        <AddFile updateTestfile= {this.updateTestFile}/>
+                        <AddFile updateTestFile = {this.updateTestFile}/>
                      }
                  </div>
 
