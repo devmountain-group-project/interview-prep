@@ -19,8 +19,6 @@ class ProblemView extends Component {
     }
   }
 
-
-
     // RETURNS A NOTEBOOK OBJECT
     storeRef = (notebook) =>{
         this.setState({
@@ -30,13 +28,14 @@ class ProblemView extends Component {
     // GRABS CODE FROM RUNKIT NOTEBOOK
     getNotebook = () => {
         this.state.notebookRef.getSource((source) => {
-            console.log('hitting here', this.state.code)
             this.setState({code: source}, () => this.writeFile())
         })
     }
 
     // WRITES TEMP FILE WITH FS
-    writeFile = () => {
+
+
+    writeFile = () =>{
         axios.post('api/writeFile', {content: this.state.code}).then(res=>{
         })
     }
@@ -81,8 +80,6 @@ class ProblemView extends Component {
         axios.post('/api/runTest', )
     }
 
-
-
     render(){
       const { id, problem } = this.props;
       if(this.props.problemReducer && this.props.problemReducer.problem[0]) {
@@ -106,6 +103,13 @@ class ProblemView extends Component {
                         this.getNotebook()
 
                     }} minHeight='500px'/>
+
+                    <Embed onLoad = {(e) => {this.storeRef(e)}} onEvaluate={() => {
+                        this.getNotebook()
+                        
+                        
+                    }}/>
+
                 </div>
 
                 {this.state.finalSubmit ? 

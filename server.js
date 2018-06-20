@@ -11,7 +11,10 @@ const JasmineController = require('./Controllers/Jasmine/JasmineController');
 const AWS = require('./Controllers/AWSController');
 const fs = require('fs')
 const FSC = require('./Controllers/FSController')
+<<<<<<< Updated upstream
 const ProblemController = require('./Controllers/ProblemController')
+=======
+>>>>>>> Stashed changes
 require('dotenv').config();
 const path = require('path');
 
@@ -121,6 +124,10 @@ app.get("/auth/me", (req, res) => {
   }
 });
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 // AWS ENDPOINT
 app.post('/api/aws', AWS.sign)
 
@@ -129,11 +136,14 @@ app.post('/api/runTest', JasmineController.runTest);
 
 // FS ENDPOINTS
 app.post('/api/writeFile', FSC.write)
+<<<<<<< Updated upstream
 app.delete('/api/deleteFile', FSC.delete)
 
 //PROBLEM ENDPOINTS
 app.get('/api/getProblem/:problem_id', ProblemController.get)
 
+=======
+>>>>>>> Stashed changes
 
 // SERVER LISTEN
 
