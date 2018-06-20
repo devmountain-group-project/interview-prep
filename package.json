@@ -25,6 +25,7 @@
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "jasmine": "^3.1.0",
+    "jasmine-json-test-reporter": "^1.0.0-beta",
     "massive": "^5.0.0",
     "passport": "^0.4.0",
     "passport-auth0": "^0.6.1",

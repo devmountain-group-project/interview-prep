@@ -36,13 +36,11 @@ class ProblemView extends Component {
     }
 
     // WRITES TEMP FILE WITH FS
-
-
-
     writeFile = () =>{
         axios.post('api/writeFile', {content: this.state.code}).then(res=>{
         })
     }
+    
     //LOADING INSTRUCTIONS
     componentWillMount = () => {
         this.props.getProblemByID(this.props.match.params.problem_id);
