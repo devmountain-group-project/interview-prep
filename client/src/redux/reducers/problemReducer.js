@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const initialState = {
   id: 1,
- problem: []
+  problem: []
 
 }
 

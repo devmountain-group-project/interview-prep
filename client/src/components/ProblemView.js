@@ -3,7 +3,10 @@ import Embed from 'react-runkit'
 import { connect } from 'react-redux'
 import axios from 'axios'
 //import './../css/problemView.css';
-import{getProblemByID, id, problem} from './../redux/reducers/problemReducer.js'
+import{getProblemByID} from './../redux/reducers/problemReducer.js'
+import results from '../jasmine-test-results.json'
+
+
 
 class ProblemView extends Component {
   constructor() {
@@ -11,6 +14,7 @@ class ProblemView extends Component {
     this.state ={
         code: '',
         notebookRef: undefined,
+        testUrl: '',
         finalSubmit: true
     }
   }
@@ -26,6 +30,7 @@ class ProblemView extends Component {
     // GRABS CODE FROM RUNKIT NOTEBOOK
     getNotebook = () => {
         this.state.notebookRef.getSource((source) => {
+            console.log('hitting here', this.state.code)
             this.setState({code: source}, () => this.writeFile())
         })
     }
@@ -35,13 +40,6 @@ class ProblemView extends Component {
         axios.post('api/writeFile', {content: this.state.code}).then(res=>{
         })
     }
-
-
-    //LOADING INSTRUCTIONS
-    componentDidMount() {
-        this.props.getProblemByID(this.props.problemReducer.id);
-    }
-
 
     // DELETES TEMP FILE WITH FS
     deleteFile = () => {
@@ -53,6 +51,37 @@ class ProblemView extends Component {
         this.setState({finalSubmit: false}, this.deleteFile())
     }
 
+    componentDidMount() {
+      //Loading instructions
+        this.props.getProblemByID(this.props.problemReducer.id);
+    }
+
+    // DISPLAYS TEST RESULTS
+    resultsToDisplay =(results) =>{
+        const arr = []
+        for  (var key in results){
+          const suite = results[key]
+          suite.specs.map((spec, index)=>{
+            const {description} = spec
+            return (
+              arr.push(spec)
+            )
+          })
+        }
+        return arr.map((spec, index)=>{
+          return(
+            <h1>
+              {spec.description}
+            </h1>
+          )
+        })
+      }
+
+    runTest = () => {
+        axios.post('/api/runTest', )
+    }
+
+
 
     render(){
       const { id, problem } = this.props;
@@ -61,12 +90,13 @@ class ProblemView extends Component {
 
 
             <div className= 'problem-view'>
+
                 <div className= 'left-container'>
                   <div className= 'instructions'>
                   {this.props.problemReducer.problem[0].instructions}
                   </div>
-                  <div className= 'spec-runner'>
-                    SpecRunner
+                  <div className= 'spec-runner'>                 
+                    {this.resultsToDisplay(results)}
                   </div>
                 </div>
 
@@ -81,6 +111,8 @@ class ProblemView extends Component {
                 {this.state.finalSubmit ? 
                     <button onClick={() =>this.submit()}>Final Submission</button> :
                     null}
+
+
             </div>
     
         )
