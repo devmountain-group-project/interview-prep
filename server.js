@@ -11,7 +11,8 @@ const JasmineController = require('./Controllers/Jasmine/JasmineController');
 const AWS = require('./Controllers/AWSController');
 const fs = require('fs')
 const FSC = require('./Controllers/FSController')
-const ProblemController = require('./Controllers/ProblemController')
+const ViewProblem = require('./Controllers/ViewProblem')
+const GetProblems = require('./Controllers/GetProblems');
 require('dotenv').config();
 const path = require('path');
 
@@ -132,7 +133,8 @@ app.post('/api/writeFile', FSC.write)
 app.delete('/api/deleteFile', FSC.delete)
 
 //PROBLEM ENDPOINTS
-app.get('/api/getProblem/:problem_id', ProblemController.get)
+app.get('/api/getProblem/:problem_id', ViewProblem.get)
+app.get('/api/getProblems', GetProblems.get)
 
 
 // SERVER LISTEN

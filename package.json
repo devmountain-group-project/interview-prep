@@ -31,6 +31,8 @@
     "redux-promise-middleware": "^5.1.1"
   },
   "nodemonConfig": {
-    "ignore": ["TempFiles/testFile.js"]
+    "ignore": [
+      "TempFiles/testFile.js"
+    ]
   }
 }
