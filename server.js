@@ -13,6 +13,7 @@ const fs = require('fs')
 const FSC = require('./Controllers/FSController')
 const ViewProblem = require('./Controllers/ViewProblem')
 const GetProblems = require('./Controllers/GetProblems');
+const AddProblem = require('./Controllers/AddProblem');
 require('dotenv').config();
 const path = require('path');
 
@@ -135,6 +136,7 @@ app.delete('/api/deleteFile', FSC.delete)
 //PROBLEM ENDPOINTS
 app.get('/api/getProblem/:problem_id', ViewProblem.get)
 app.get('/api/getProblems', GetProblems.get)
+app.post('/api/addProblem', AddProblem.addProblem)
 
 // SERVER LISTEN
 
