@@ -42,7 +42,7 @@ class ProblemView extends Component {
     writeFile = () =>{
         axios.post('api/writeFile', {content: this.state.code}).then(res=>{
         })
-
+    }
     //LOADING INSTRUCTIONS
     componentWillMount = () => {
         this.props.getProblemByID(this.props.match.params.problem_id);
@@ -83,7 +83,7 @@ class ProblemView extends Component {
     runTest = () => {
         axios.post('/api/runTest', )
     }
-}
+
     render(){
       const { id, problem } = this.props;
       if(this.props.problemReducer && this.props.problemReducer.problem[0]) {
@@ -107,12 +107,6 @@ class ProblemView extends Component {
                         this.getNotebook()
 
                     }} minHeight='500px'/>
-
-                    <Embed onLoad = {(e) => {this.storeRef(e)}} onEvaluate={() => {
-                        this.getNotebook()
-                        
-                        
-                    }}/>
 
                 </div>
 

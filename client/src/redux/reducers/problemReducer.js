@@ -1,13 +1,9 @@
 import axios from 'axios';
 
 const initialState = {
-<<<<<<< HEAD
-  id: 1,
-  problem: []
-=======
+
  problem: [],
  allProblems: []
->>>>>>> master
 
 }
 
