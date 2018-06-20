@@ -3,7 +3,10 @@ import Embed from 'react-runkit'
 import { connect } from 'react-redux'
 import axios from 'axios'
 //import './../css/problemView.css';
-import{getProblemByID, id, problem} from './../redux/reducers/problemReducer.js'
+import{getProblemByID} from './../redux/reducers/problemReducer.js'
+import results from '../jasmine-test-results.json'
+
+
 
 class ProblemView extends Component {
   constructor() {
@@ -11,13 +14,13 @@ class ProblemView extends Component {
     this.state ={
         code: '',
         notebookRef: undefined,
+        testUrl: '',
         finalSubmit: true,
         problemID: null
 
+
     }
   }
-
-
 
     // RETURNS A NOTEBOOK OBJECT
     storeRef = (notebook) =>{
@@ -33,17 +36,18 @@ class ProblemView extends Component {
     }
 
     // WRITES TEMP FILE WITH FS
-    writeFile = () => {
+
+
+
+    writeFile = () =>{
         axios.post('api/writeFile', {content: this.state.code}).then(res=>{
         })
-    }
-
 
     //LOADING INSTRUCTIONS
-    componentWillMount() {
+    componentWillMount = () => {
         this.props.getProblemByID(this.props.match.params.problem_id);
-    }
 
+    }
 
     // DELETES TEMP FILE WITH FS
     deleteFile = () => {
@@ -55,6 +59,31 @@ class ProblemView extends Component {
         this.setState({finalSubmit: false}, this.deleteFile())
     }
 
+    // DISPLAYS TEST RESULTS
+    resultsToDisplay =(results) =>{
+        const arr = []
+        for  (var key in results){
+          const suite = results[key]
+          suite.specs.map((spec, index)=>{
+            const {description} = spec
+            return (
+              arr.push(spec)
+            )
+          })
+        }
+        return arr.map((spec, index)=>{
+          return(
+            <h1>
+              {spec.description}
+            </h1>
+          )
+        })
+      }
+
+    runTest = () => {
+        axios.post('/api/runTest', )
+    }
+}
     render(){
       const { id, problem } = this.props;
       if(this.props.problemReducer && this.props.problemReducer.problem[0]) {
@@ -62,12 +91,13 @@ class ProblemView extends Component {
 
 
             <div className= 'problem-view'>
+
                 <div className= 'left-container'>
                   <div className= 'instructions'>
                   {this.props.problemReducer.problem[0].instructions}
                   </div>
-                  <div className= 'spec-runner'>
-                    SpecRunner
+                  <div className= 'spec-runner'>                 
+                    {this.resultsToDisplay(results)}
                   </div>
                 </div>
 
@@ -77,11 +107,20 @@ class ProblemView extends Component {
                         this.getNotebook()
 
                     }} minHeight='500px'/>
+
+                    <Embed onLoad = {(e) => {this.storeRef(e)}} onEvaluate={() => {
+                        this.getNotebook()
+                        
+                        
+                    }}/>
+
                 </div>
 
                 {this.state.finalSubmit ?
                     <button onClick={() =>this.submit()}>Final Submission</button> :
                     null}
+
+
             </div>
 
         )
