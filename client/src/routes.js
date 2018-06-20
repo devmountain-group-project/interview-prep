@@ -14,7 +14,7 @@ export default(
             <Route component={Dashboard} path = '/dashboard'/>
             <Route component={AdminDash} path = '/admin' />
             <Route component={Problems} path = '/problems' />
-            <Route component={ProblemView} path = '/problemview' />
+            <Route component={ProblemView} path = '/problemview/:problem_id' />
             <Route component={Submission} path = '/submission' />
         </Switch>
-) 
+)

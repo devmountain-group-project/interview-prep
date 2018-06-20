@@ -15,7 +15,10 @@ class ProblemView extends Component {
         code: '',
         notebookRef: undefined,
         testUrl: '',
-        finalSubmit: true
+        finalSubmit: true,
+        problemID: null
+
+
     }
   }
 
@@ -35,24 +38,25 @@ class ProblemView extends Component {
     // WRITES TEMP FILE WITH FS
 
 
+
     writeFile = () =>{
         axios.post('api/writeFile', {content: this.state.code}).then(res=>{
         })
+
+    //LOADING INSTRUCTIONS
+    componentWillMount = () => {
+        this.props.getProblemByID(this.props.match.params.problem_id);
+
     }
 
     // DELETES TEMP FILE WITH FS
     deleteFile = () => {
         axios.delete('/api/deleteFile')
     }
-    
+
     // FINAL SUBMISSION ONCE TESTS HAVE PASSED
     submit = () => {
         this.setState({finalSubmit: false}, this.deleteFile())
-    }
-
-    componentDidMount() {
-      //Loading instructions
-        this.props.getProblemByID(this.props.problemReducer.id);
     }
 
     // DISPLAYS TEST RESULTS
@@ -79,7 +83,7 @@ class ProblemView extends Component {
     runTest = () => {
         axios.post('/api/runTest', )
     }
-
+}
     render(){
       const { id, problem } = this.props;
       if(this.props.problemReducer && this.props.problemReducer.problem[0]) {
@@ -112,13 +116,13 @@ class ProblemView extends Component {
 
                 </div>
 
-                {this.state.finalSubmit ? 
+                {this.state.finalSubmit ?
                     <button onClick={() =>this.submit()}>Final Submission</button> :
                     null}
 
 
             </div>
-    
+
         )
       } else {
         return <div>
