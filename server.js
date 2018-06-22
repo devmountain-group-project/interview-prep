@@ -126,12 +126,14 @@ app.get("/auth/me", (req, res) => {
 // AWS ENDPOINT
 app.post('/api/aws', AWS.sign)
 
+
 // JASMINE ENDPOINT
 app.post('/api/runTest', JasmineController.runTest);
 
 // FS ENDPOINTS
 app.post('/api/writeFile', FSC.write)
 app.delete('/api/deleteFile', FSC.delete)
+app.post('/api/writeTestFile', FSC.writeTest)
 
 //PROBLEM ENDPOINTS
 app.get('/api/getProblem/:problem_id', ViewProblem.get)

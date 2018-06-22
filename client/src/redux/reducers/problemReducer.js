@@ -14,6 +14,7 @@ let ADD_PROBLEM = "ADD_PROBLEM"
 export default (state = initialState, action) => {
     switch(action.type) {
         case GET_PROBLEM_BY_ID + '_FULFILLED':
+            console.log('hitting fulfilled', action.payload.data)
             return Object.assign( {}, state, {problem: action.payload.data} );
         case GET_PROBLEMS + '_FULFILLED':
             return Object.assign( {}, state, {allProblems: action.payload.data} );
@@ -38,12 +39,13 @@ export function getProblems() {
     }
 }
 
-export function addProblem(name, instructions) {
+export function addProblem(name, instructions, testUrl) {
     return {
         type: ADD_PROBLEM,
         payload: axios.post('/api/addProblem', {
             name,
-            instructions
+            instructions,
+            testUrl
         }).then(response => {
             return response.data
         })

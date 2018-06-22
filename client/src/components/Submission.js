@@ -12,7 +12,7 @@ class Submission extends Component {
         super(props)
     
         this.state = {
-            testFile: '',
+            testUrl: '',
             fileToTest: '',
             name: '',
             instructions: '',
@@ -21,19 +21,16 @@ class Submission extends Component {
 
     updateTestFile = (url) => {
         var newUrl= url.substring(0, url.indexOf('?')) 
-        this.setState({testFile: newUrl})
-        console.log(this.state.testFile)
+        this.setState({testUrl: newUrl})
     }
 
-<<<<<<< HEAD
-=======
     handleAddProblem = () => {
-        this.props.addProblem(this.state.name, this.state.instructions).then( () => {
+        this.props.addProblem(this.state.name, this.state.instructions, this.state.testUrl).then( () => {
             this.setState({name: '', instructions: ''})
         })
     }
 
->>>>>>> master
+
     render(){
         return(
             <div>
@@ -64,9 +61,9 @@ class Submission extends Component {
                  </div>
 
                  <div className="sub-contain">
-                    {this.state.testFile ? 
+                    {this.state.testUrl ? 
                         <div className= 'file-preview dropstyle'>
-                            {this.state.testFile}
+                            {this.state.testUrl}
                         </div> :
                         <AddFile updateTestFile = {this.updateTestFile}/>
                      }
