@@ -12,22 +12,24 @@ class Submission extends Component {
         super(props)
     
         this.state = {
-            testFile: '',
+            testUrl: '',
             fileToTest: '',
             name: '',
             instructions: '',
         }
     }
 
-    updateTestFile(file){
-        this.setState({testFile: file})
+    updateTestFile = (url) => {
+        var newUrl= url.substring(0, url.indexOf('?')) 
+        this.setState({testUrl: newUrl})
     }
 
     handleAddProblem = () => {
-        this.props.addProblem(this.state.name, this.state.instructions).then( () => {
+        this.props.addProblem(this.state.name, this.state.instructions, this.state.testUrl).then( () => {
             this.setState({name: '', instructions: ''})
         })
     }
+
 
     render(){
         return(
@@ -59,11 +61,11 @@ class Submission extends Component {
                  </div>
 
                  <div className="sub-contain">
-                    {this.state.testFile ? 
+                    {this.state.testUrl ? 
                         <div className= 'file-preview dropstyle'>
-                            {this.state.testFile}
+                            {this.state.testUrl}
                         </div> :
-                        <AddFile updateTestfile= {this.updateTestFile}/>
+                        <AddFile updateTestFile = {this.updateTestFile}/>
                      }
                  </div>
 

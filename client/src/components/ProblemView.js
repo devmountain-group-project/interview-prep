@@ -14,9 +14,10 @@ class ProblemView extends Component {
     this.state ={
         code: '',
         notebookRef: undefined,
-        testUrl: '',
+        testFile: '',
         finalSubmit: true,
-        problemID: null
+        problemID: null,
+        retrievedFile: false
 
 
     }
@@ -42,9 +43,8 @@ class ProblemView extends Component {
     }
     
     //LOADING INSTRUCTIONS
-    componentWillMount = () => {
-        this.props.getProblemByID(this.props.match.params.problem_id);
-
+    componentDidMount = () => {
+        this.props.getProblemByID(this.props.match.params.problem_id)
     }
 
     // DELETES TEMP FILE WITH FS
@@ -82,9 +82,27 @@ class ProblemView extends Component {
         axios.post('/api/runTest', )
     }
 
+    getFile = () => {
+        axios.get(this.props.state.problemReducer.problem[0].unit_test_file).then(res => {
+            this.setState({testFile: res.data, retrievedFile: true})
+        })
+    }
+
+    writeTestFile = () => {
+        console.log('hitting write test', this.state.testFile)
+        axios.post('/api/writeTestFile', {content: this.state.testFile})
+    }
+
     render(){
       const { id, problem } = this.props;
-      if(this.props.problemReducer && this.props.problemReducer.problem[0]) {
+      if(this.props.state.problemReducer && this.props.state.problemReducer.problem[0]) {
+          if(!this.state.retrievedFile) {
+            this.getFile()
+          }
+          if(this.state.testFile){
+              console.log('the if', this.state.testFile)
+            this.writeTestFile()
+          }
         return(
 
 
@@ -92,11 +110,12 @@ class ProblemView extends Component {
 
                 <div className= 'left-container'>
                   <div className= 'instructions'>
-                  {this.props.problemReducer.problem[0].instructions}
+                  {this.props.state.problemReducer.problem[0].instructions}
                   </div>
                   <div className= 'spec-runner'>                 
                     {this.resultsToDisplay(results)}
                   </div>
+                  
                 </div>
 
                 <div className= 'code-editor'>
@@ -105,9 +124,8 @@ class ProblemView extends Component {
                         this.getNotebook()
 
                     }} minHeight='500px'/>
-
+                    
                 </div>
-
                 {this.state.finalSubmit ?
                     <button onClick={() =>this.submit()}>Final Submission</button> :
                     null}
@@ -126,7 +144,9 @@ class ProblemView extends Component {
 
 
 function mapStateToProps(state) {
-    return state;
+    return {
+        state
+    };
 
   }
 
