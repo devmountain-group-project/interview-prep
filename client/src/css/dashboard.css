@@ -1,0 +1,131 @@
+.background {
+  margin: 0;
+  background-color: white;
+}
+
+.header {
+  margin: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height:7vh;
+  align-items: center;
+  font-family: Dosis;
+  background-color: white;
+  padding: 20px;
+  padding-bottom: 30px;
+   border-bottom: 1px solid #DEE2E3;
+  color: #3a3a3a;
+}
+
+.header img {
+  height: 50px;
+  width: 50px;
+}
+
+.header button {
+  height: 67%;
+  width: 100px;
+  padding: 5px;
+  margin: 5px;
+  border-color: #3a3a3a;
+  color: #3a3a3a;
+  font-family: Dosis;
+  font-size: 12px;
+}
+
+.header button:hover {
+  background-color: #56D394;
+  color: white;
+  border-color: white;
+}
+
+.logo {
+  color: #56D394;
+}
+.contentContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tabs {
+  width: 15vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tabs img {
+  height: 40px;
+  width: 40px;
+  padding-right: 30px;
+  padding-left: 15px;
+}
+
+.tabs div {
+  height: 60px;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  font-family: Dosis;
+  align-items: center;
+  margin: 10px;
+}
+
+
+.dashboard {
+  width: 50vw;
+}
+
+
+.offRow {
+  background-color: #DEE2E3;
+}
+
+.tableStyle {
+  width: 100%;
+}
+
+.tableStyle tr{
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.stats {
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.stats div {
+  height: 38%;
+  width: 90%;
+  background-color: #56D394;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  padding: 15px;
+  box-sizing: border-box;
+  font-family: Dosis;
+}
+
+.stats img{
+  height:125px;
+  width:125px;
+}
+
+.stats p{
+  margin: 0;
+  padding: 0;
+
+}

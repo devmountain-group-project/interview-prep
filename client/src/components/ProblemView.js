@@ -41,7 +41,6 @@ class ProblemView extends Component {
         axios.post('api/writeFile', {content: this.state.code}).then(res=>{
         })
     }
-    
     //LOADING INSTRUCTIONS
     componentDidMount = () => {
         this.props.getProblemByID(this.props.match.params.problem_id)
@@ -112,10 +111,9 @@ class ProblemView extends Component {
                   <div className= 'instructions'>
                   {this.props.state.problemReducer.problem[0].instructions}
                   </div>
-                  <div className= 'spec-runner'>                 
+                  <div className= 'spec-runner'>
                     {this.resultsToDisplay(results)}
                   </div>
-                  
                 </div>
 
                 <div className= 'code-editor'>
@@ -124,7 +122,7 @@ class ProblemView extends Component {
                         this.getNotebook()
 
                     }} minHeight='500px'/>
-                    
+
                 </div>
                 {this.state.finalSubmit ?
                     <button onClick={() =>this.submit()}>Final Submission</button> :

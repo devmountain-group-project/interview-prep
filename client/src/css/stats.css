@@ -1,0 +1,30 @@
+.stats {
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.stats div {
+  height: 38%;
+  width: 90%;
+  background-color: #56D394;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  padding: 15px;
+  box-sizing: border-box;
+  font-family: Dosis;
+}
+
+.stats img{
+  height:125px;
+  width:125px;
+}
+
+.stats p{
+  margin: 0;
+  padding: 0;
+
+}

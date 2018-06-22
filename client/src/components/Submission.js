@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
+import Header from './Header';
 import Nav from './Nav';
+import Stats from './Stats';
 import '../css/submission.css'
 import '../css/main.css'
 import AddFile from './AddFile'
@@ -10,7 +12,7 @@ import { addProblem } from '../redux/reducers/problemReducer'
 class Submission extends Component {
     constructor(props) {
         super(props)
-    
+
         this.state = {
             testUrl: '',
             fileToTest: '',
@@ -20,7 +22,7 @@ class Submission extends Component {
     }
 
     updateTestFile = (url) => {
-        var newUrl= url.substring(0, url.indexOf('?')) 
+        var newUrl= url.substring(0, url.indexOf('?'))
         this.setState({testUrl: newUrl})
     }
 
@@ -33,43 +35,49 @@ class Submission extends Component {
 
     render(){
         return(
-            <div>
-
-                <Nav />
+            <div className="background">
                 <div>
-                    <h1 className="text header">Submit new problems</h1>
-                    <h3 className="text header-med">Thanks for helping Interview Prepper grow</h3>
-                    <p className ="text copy">You ever roasted doughnuts?You gotta go through it to see there ain't nothing to it.Listen to the silence. And when the silence is deafening, you're in the center of your own universe.The best way to communicate is compatible. Compatible communication is listening with open ears and an open mind, and not being fearful or judgemental about what you're hearing. 
-                    </p>
+                  <Header />
                 </div>
-                
-                 <div className="sub-contain">
-                    <form>
-                        <p className="input-text"> Problem name:</p>
-                        <input type="text" name="problemname" className="text input1" value={this.state.name} onChange={ (e) => this.setState({ name: e.target.value})}></input>
-                        <p className="input-text"> Interview Company:</p>
-                        <input type="text" name="company" className="text input1"></input><br />
-                        <p className="input-text"> Problem Instructions:</p>
-                        <textarea name="description" className="text input3" value={this.state.instructions} onChange={ (e) => this.setState({ instructions: e.target.value})}></textarea>
-                    </form>
+                <div className="contentContainer">
+                  <div>
+                    <Nav />
+                  </div>
+                  <div>
+                    <div>
+                      <h1>Submit new problems</h1>
+                      <h3>Thanks for helping Interview Prepper grow</h3>
+                      <p>You ever roasted doughnuts?You gotta go through it to see there aint nothing to it. Listen to the silence. And when the silence is deafening, youre in the center of your own universe.The best way to communicate is compatible. Compatible communication is listening with open ears and an open mind, and not being fearful or judgemental about what youre hearing.</p>
+                    </div>
+                    <div>
+                      <form>
+                        <p> Problem name:</p>
+                        <input value={this.state.name} onChange={ (e) => this.setState({ name: e.target.value})}></input>
+                        <p> Interview Company:</p>
+                        <input></input><br />
+                        <p> Problem Description:</p>
+                        <textarea name="description" value={this.state.instructions} onChange={ (e) => this.setState({ instructions: e.target.value})}></textarea>
+                        <div>
+                           <button onClick={this.handleAddProblem}>SUBMIT PROBLEM</button>
+                        </div>
+                      </form>
                     <br />
 
-                 <div>
-                    <button onClick={this.handleAddProblem}>SUBMIT PROBLEM</button>
-                 </div>
-
-                 </div>
-
-                 <div className="sub-contain">
-                    {this.state.testUrl ? 
-                        <div className= 'file-preview dropstyle'>
-                            {this.state.testUrl}
-                        </div> :
-                        <AddFile updateTestFile = {this.updateTestFile}/>
-                     }
-                 </div>
-
+                    </div>
+                    <div className="sub-contain">
+                      {this.state.testFile ?
+                          <div className= 'file-preview dropstyle'>
+                              {this.state.testFile}
+                          </div> :
+                          <AddFile updateTestfile= {this.updateTestFile}/>
+                      }
+                    </div>
             </div>
+            <div>
+              <Stats />
+            </div>
+          </div>
+          </div>
         )
     }
 }

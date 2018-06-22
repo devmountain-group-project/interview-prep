@@ -1,8 +1,11 @@
 import React, {Component} from 'react'
+import Header from './Header';
 import Nav from './Nav';
+import Stats from './Stats';
 import { connect } from 'react-redux'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
+import './../css/problems.css';
 
 import{getProblems, allProblems} from './../redux/reducers/problemReducer.js'
 
@@ -21,18 +24,38 @@ class Problems extends Component {
         console.log(11111, allProblems)
         return(
 
-
-            <div>
+          <div className="background">
+              <div>
+                <Header />
+              </div>
+              <div className="contentContainer">
                 <Nav />
-                <h1>Problems</h1>
-                {allProblems.map(item => {
-                  return(
-                    <div>
-                    <Link to={`/problemview/${item.id}`}>{item.name}</Link>
-                    </div>
-                  )
-                })}
+                <div>
+                  <h1>Problems</h1>
+                  <table className="problemTable">
+                  {allProblems.map((item,index) => {
+
+                        if(index % 2 === 0) {
+                          return(
+                        <tr>
+                        <div><Link to={`/problemview/${item.id}`}>{item.name}</Link></div>
+                        <div>1000pts</div>
+                        </tr>
+                      )
+                      } else {
+                        return (
+                        <tr className="offRow">
+                        <div><Link to={`/problemview/${item.id}`}>{item.name}</Link></div>
+                        <div>1000pts</div>
+                        </tr>
+                      )
+                      }
+                  })}
+                  </table>
+                </div>
+                <Stats/>
             </div>
+          </div>
         )
     }
 }
