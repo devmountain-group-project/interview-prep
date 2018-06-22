@@ -1,0 +1,18 @@
+.problemTable {
+    width: 100%;
+  }
+
+  .problemTable tr{
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .offRow {
+    background-color: #DEE2E3;
+  }

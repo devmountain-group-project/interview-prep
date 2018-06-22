@@ -1,0 +1,87 @@
+.header {
+  margin: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height:7vh;
+  align-items: center;
+  font-family: Dosis;
+  background-color: white;
+  padding: 20px;
+  padding-bottom: 30px;
+   border-bottom: 1px solid #DEE2E3;
+  color: #3a3a3a;
+}
+
+.header img {
+  height: 50px;
+  width: 50px;
+}
+
+.header button {
+  height: 67%;
+  width: 100px;
+  padding: 5px;
+  margin: 5px;
+  border-color: #3a3a3a;
+  color: #3a3a3a;
+  font-family: Dosis;
+  font-size: 12px;
+}
+
+.header button:hover {
+  background-color: #56D394;
+  color: white;
+  border-color: white;
+  cursor: pointer;
+}
+
+.logo {
+  color: #56D394;
+}
+
+/*
+a {
+    text-decoration: none;
+}
+
+.nav_contain {
+    background-color: #3D5F75;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+
+}
+.nav {
+    width: 33%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0px 10px
+}
+
+.nav_text {
+    color: white;
+    padding: 14px 10px;
+    margin: 3px 0px;
+    text-decoration: none !important;
+    font-weight: 400;
+}
+
+.nav_header {
+    text-align: center;
+    font-weight: 600;
+    margin: auto;
+    font-size: 2.5em;
+    color: white;
+}
+
+.logout {
+    width: 40%;
+    display: block;
+}
+.logout_text {
+    float: right;
+    padding-right: 20px;
+} */
