@@ -128,7 +128,7 @@ app.post('/api/aws', AWS.sign)
 
 
 // JASMINE ENDPOINT
-app.post('/api/runTest', JasmineController.runTest);
+app.get('/api/runTest', JasmineController.runTest);
 
 // FS ENDPOINTS
 app.post('/api/writeFile', FSC.write)

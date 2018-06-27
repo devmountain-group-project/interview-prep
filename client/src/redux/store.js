@@ -1,5 +1,5 @@
 import {createStore, applyMiddleware, compose} from 'redux';
-import promiseMiddleware from 'redux-promise-middleware';
+import reduxPromiseMiddleware from 'redux-promise-middleware';
 import reducer from './reducers/problemReducer';
 
 export default createStore(

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "NODE_PATH": "./src",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -33,7 +34,8 @@
   },
   "nodemonConfig": {
     "ignore": [
-      "TempFiles/testFile.js"
+      "TempFiles/testFile.js",
+      "TempFiles/problemFile.js"
     ]
   }
 }

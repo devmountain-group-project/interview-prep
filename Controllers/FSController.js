@@ -3,13 +3,14 @@ const fs = require('fs')
 module.exports={
     write: (req, res, next) => {
         const {content} = req.body
-        const fullContent = 'module.exports = {' + content + '}'
+        const fullContent = 'module.exports = ' + content 
             fs.writeFile('TempFiles/problemFile.js', fullContent, (err) => {
                 if (err) throw err;
                 
                 console.log("The file was succesfully saved!", content);
-                return res.status(200)
+                return res.status(200).send('it worked')
             })
+            
     },
     delete: (req, res, next) => {
         fs.unlink('TempFiles/problemFile.js', (err) => {
@@ -24,7 +25,8 @@ module.exports={
 
     writeTest: (req, res, next) => {
         const {content} = req.body
-        const fullContent = 'const file = require("problemFile.js")' + content
+        const fullContent = 'const file = require("./problemFile.js")' + content
+            
             fs.writeFile('TempFiles/testFile.js', fullContent, (err) => {
                 if (err) throw err;
                 
