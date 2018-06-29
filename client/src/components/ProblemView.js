@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 import './../css/problemView.css';
 import{getProblemByID} from './../redux/reducers/problemReducer.js'
-import results from '../jasmine-test-results.json'
+
 
 
 
@@ -17,7 +17,9 @@ class ProblemView extends Component {
         testFile: '',
         finalSubmit: true,
         problemID: null,
-        retrievedFile: false
+        retrievedFile: false,
+        showResults: false,
+        results: {}
 
 
     }
@@ -39,6 +41,7 @@ class ProblemView extends Component {
     // WRITES TEMP FILE WITH FS
     writeFile = () =>{
         axios.post('api/writeFile', {content: this.state.code}).then(res=>{
+            this.runTest()
         })
     }
     //LOADING INSTRUCTIONS
@@ -78,7 +81,11 @@ class ProblemView extends Component {
       }
 
     runTest = () => {
-        axios.post('/api/runTest', )
+        console.log('running test')
+        axios.get('http://localhost:3005/api/runTest').then(res => {
+            console.log(res.data)
+            this.setState({showResults: true, results: res.data})
+        })
     }
 
     getFile = () => {
@@ -88,7 +95,6 @@ class ProblemView extends Component {
     }
 
     writeTestFile = () => {
-        console.log('hitting write test', this.state.testFile)
         axios.post('/api/writeTestFile', {content: this.state.testFile})
     }
 
@@ -99,7 +105,6 @@ class ProblemView extends Component {
             this.getFile()
           }
           if(this.state.testFile){
-              console.log('the if', this.state.testFile)
             this.writeTestFile()
           }
         return(
@@ -112,7 +117,7 @@ class ProblemView extends Component {
                   {this.props.state.problemReducer.problem[0].instructions}
                   </div>
                   <div className= 'spec-runner'>
-                    {this.resultsToDisplay(results)}
+                    {/* {this.resultsToDisplay(results)} */}
                   </div>
 
                 </div>

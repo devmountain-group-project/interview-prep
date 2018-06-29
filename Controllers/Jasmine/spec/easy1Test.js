@@ -1,4 +1,3 @@
-var multiply = require('./easy1');
 
 describe('Multiply', function() {
   it('should be able to calculate product of two numbers', function() {
