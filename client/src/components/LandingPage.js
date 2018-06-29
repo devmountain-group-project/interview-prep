@@ -18,16 +18,6 @@ class LandingPage extends Component {
                                 <a href="http://localhost:3005/auth"><button className="button1">Login</button></a>
                             </div>
                     </div>
-
-                <div className="header">
-                    <h6 className="logo">{logo}</h6>
-                    <a href="http://localhost:3005/auth"><button>Login</button></a>
-                </div>
-                <div>
-                    <h2> Sharpen your skills </h2>
-                    <p> Our website is a place for you to come and brush up on your coding. Master your Javascript skills with toy problems of varying difficulty levels. </p>
-
-                </div>
             </div>
           </div>
         )
