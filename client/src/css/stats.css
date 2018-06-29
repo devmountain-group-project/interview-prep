@@ -1,11 +1,12 @@
 .stats {
   width: 25vw;
+  height: 75vh;
   display: flex;
   flex-direction: column;
 }
 
 .stats div {
-  height: 38%;
+  height: 48%;
   width: 90%;
   background-color: #56D394;
   margin-top: 15px;
@@ -19,12 +20,31 @@
 }
 
 .stats img{
-  height:125px;
-  width:125px;
+  height:120px;
+  width:120px;
 }
 
 .stats p{
   margin: 0;
   padding: 0;
 
+}
+
+.statsDisplay {
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+
+}
+
+.statsDisplay h2 {
+  margin: 0;
+}
+
+.statsDisplay h4 {
+  margin: 0;
+}
+
+.statsDisplay p {
+  font-size: 50px;
 }

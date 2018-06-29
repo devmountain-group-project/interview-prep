@@ -14,6 +14,7 @@ const FSC = require('./Controllers/FSController')
 const ViewProblem = require('./Controllers/ViewProblem')
 const GetProblems = require('./Controllers/GetProblems');
 const AddProblem = require('./Controllers/AddProblem');
+const GetSolved = require('./Controllers/GetSolved');
 require('dotenv').config();
 const path = require('path');
 
@@ -56,6 +57,7 @@ passport.use(
     (accessToken, refreshToken, extraParams, profile, done) => {
 
       const db = app.get('db');
+      console.log(profile._json.name);
       db.get_user_by_auth_id({ auth_id: profile.id }).then(results => {
         let user = results[0];
 
@@ -64,6 +66,7 @@ passport.use(
         } else {
           let userObj = {
             username: profile.displayName,
+            name: profile._json.name,
             auth_id: profile.id
           }
 
@@ -117,6 +120,7 @@ app.get('/auth/logout', (req, res) => {
 
 app.get("/auth/me", (req, res) => {
   if (req.isAuthenticated()) {
+    console.log(44444444444, req.user);
     return res.send(req.user);
   } else {
     return res.status(404).send("user not authenticated");
@@ -128,17 +132,20 @@ app.post('/api/aws', AWS.sign)
 
 
 // JASMINE ENDPOINT
-app.get('/api/runTest', JasmineController.runTest);
+app.get ('/api/runTest', JasmineController.runTest);
 
 // FS ENDPOINTS
 app.post('/api/writeFile', FSC.write)
 app.delete('/api/deleteFile', FSC.delete)
 app.post('/api/writeTestFile', FSC.writeTest)
 
+
 //PROBLEM ENDPOINTS
 app.get('/api/getProblem/:problem_id', ViewProblem.get)
 app.get('/api/getProblems', GetProblems.get)
 app.post('/api/addProblem', AddProblem.addProblem)
+app.get('/api/getSolvedProblems/:user_id' ,GetSolved.get)
+
 
 // SERVER LISTEN
 

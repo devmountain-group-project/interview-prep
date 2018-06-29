@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
 import Nav from './Nav';
@@ -16,6 +16,7 @@ class Submission extends Component {
         this.state = {
             testUrl: '',
             fileToTest: '',
+            difficulty: '',
             name: '',
             instructions: '',
         }
@@ -27,8 +28,8 @@ class Submission extends Component {
     }
 
     handleAddProblem = () => {
-        this.props.addProblem(this.state.name, this.state.instructions, this.state.testUrl).then( () => {
-            this.setState({name: '', instructions: ''})
+        this.props.addProblem(this.state.name, this.state.instructions, this.state.testUrl, this.state.difficulty).then( () => {
+            this.setState({name: '', instructions: '', difficulty: ''})
         })
     }
 
@@ -43,22 +44,22 @@ class Submission extends Component {
                   <div>
                     <Nav />
                   </div>
-                  <div>
+                  <div className="submission">
                     <div>
                       <h1>Submit new problems</h1>
-                      <h3>Thanks for helping Interview Prepper grow</h3>
-                      <p>You ever roasted doughnuts?You gotta go through it to see there aint nothing to it. Listen to the silence. And when the silence is deafening, youre in the center of your own universe.The best way to communicate is compatible. Compatible communication is listening with open ears and an open mind, and not being fearful or judgemental about what youre hearing.</p>
+                      <h3>Thanks for helping our site grow</h3>
+                      <p> You will need to insert the name, difficulty and instructions for the problem you want to submit. Before clicking on the submit problem button make sure to upload your unit test file first by clicking in the box that says "Click to upload file!". </p>
                     </div>
                     <div>
                       <form>
                         <p> Problem name:</p>
-                        <input value={this.state.name} onChange={ (e) => this.setState({ name: e.target.value})}></input>
-                        <p> Interview Company:</p>
-                        <input></input><br />
-                        <p> Problem Description:</p>
-                        <textarea name="description" value={this.state.instructions} onChange={ (e) => this.setState({ instructions: e.target.value})}></textarea>
+                        <input value={this.state.name} onChange={ (e) => this.setState({ name: e.target.value })}></input>
+                        <p> Difficulty: </p>
+                        <input value={this.state.difficulty} onChange={ (e) => this.setState({ difficulty: e.target.value })}></input><br />
+                        <p> Problem Instrctions: </p>
+                        <textarea name="description" value={this.state.instructions} onChange={ (e) => this.setState({ instructions: e.target.value })}></textarea>
                         <div>
-                           <button onClick={this.handleAddProblem}>SUBMIT PROBLEM</button>
+                           <button className="submitButton" onClick={this.handleAddProblem}>Submit Problem</button>
                         </div>
                       </form>
                     <br />

@@ -6,7 +6,7 @@ module.exports={
         const fullContent = 'module.exports = ' + content 
             fs.writeFile('TempFiles/problemFile.js', fullContent, (err) => {
                 if (err) throw err;
-                
+
                 console.log("The file was succesfully saved!", content);
                 return res.status(200).send('it worked')
             })
@@ -29,7 +29,7 @@ module.exports={
             
             fs.writeFile('TempFiles/testFile.js', fullContent, (err) => {
                 if (err) throw err;
-                
+
                 console.log("The file was succesfully saved!", fullContent);
                 return res.status(200)
             })
