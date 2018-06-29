@@ -60,7 +60,7 @@ passport.use(
       console.log(profile._json.name);
       db.get_user_by_auth_id({ auth_id: profile.id }).then(results => {
         let user = results[0];
-        console.log(user)
+
         if (user) {
           return done(null, user)
         } else {
