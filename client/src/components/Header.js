@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
 import '../css/main.css'
 import '../css/header.css'
-const icon = require('./../css/coding.png');
+const icon = require('./../css/images/shoe.png');
 
 
 class Header extends Component {
@@ -14,7 +14,6 @@ class Header extends Component {
                 <div className="nav">
                 <div className='header'>
                 <img src={icon} />
-                <h6 className="logo">{logo}</h6>
                 <a href="http://localhost:3005/auth/logout"><button>Logout</button></a>
                 </div>
                 </div>
@@ -28,7 +27,7 @@ class Header extends Component {
 export default Header;
 
 
-
+// <h6 className="logo">{logo}</h6>
 //     <Link to={`/dashboard`}><h2 className="text nav_text">Dashboard</h2></Link>
 //     <Link to={`/problems`}><h2 className="text nav_text">Problems</h2></Link>
 //     <Link to={`/submission`}><h2 className="text nav_text">Submit</h2></Link>

@@ -40,7 +40,7 @@
     resize: none;
     text-align: left;
     margin-bottom: 10px;
-    
+
 }
 
 .input3 {
@@ -55,5 +55,9 @@
     resize: none;
     text-align: left;
     margin-bottom: 10px;
-    
+
+}
+
+.submission {
+  width: 50vw;
 }

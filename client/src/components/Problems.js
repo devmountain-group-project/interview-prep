@@ -21,7 +21,6 @@ class Problems extends Component {
 
     render(){
         const allProblems = this.props.problemReducer.allProblems;
-        console.log(11111, allProblems)
         return(
 
           <div className="background">
@@ -30,8 +29,8 @@ class Problems extends Component {
               </div>
               <div className="contentContainer">
                 <Nav />
-                <div>
-                  <h1>Problems</h1>
+                <div className="problem">
+                  <h1>Sprints</h1>
                   <table className="problemTable">
                   {allProblems.map((item,index) => {
 
@@ -39,14 +38,14 @@ class Problems extends Component {
                           return(
                         <tr>
                         <div><Link to={`/problemview/${item.id}`}>{item.name}</Link></div>
-                        <div>1000pts</div>
+                        <div>{item.difficulty} Meters</div>
                         </tr>
                       )
                       } else {
                         return (
                         <tr className="offRow">
                         <div><Link to={`/problemview/${item.id}`}>{item.name}</Link></div>
-                        <div>1000pts</div>
+                        <div>{item.difficulty} Meters</div>
                         </tr>
                       )
                       }

@@ -43,7 +43,7 @@ class Submission extends Component {
                   <div>
                     <Nav />
                   </div>
-                  <div>
+                  <div className="submission">
                     <div>
                       <h1>Submit new problems</h1>
                       <h3>Thanks for helping Interview Prepper grow</h3>

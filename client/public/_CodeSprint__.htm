@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)http://localhost:3000/#/ -->
+<html lang="en" class="gr__localhost"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <script src="./_CodeSprint___files/saved_resource"></script>
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <link rel="shortcut icon" href="http://localhost:3000/coding.png">
+    <link href="./_CodeSprint___files/css" rel="stylesheet">
+    <link href="./_CodeSprint___files/css(1)" rel="stylesheet">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>&lt;CodeSprint/&gt;</title>
+  <style type="text/css">body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+</style><style type="text/css">.App {
+  text-align: center;
+}
+</style><style type="text/css">
+.header {
+    font-weight: 900;
+    margin: 50px auto;
+    font-size: 4.5em;
+    line-height: .7;
+}
+
+.background {
+  margin: 0;
+  background-color: white;
+}
+
+.contentContainer {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: #3a3a3a;
+}
+ a:hover {
+   color: #56D394;
+   cursor: pointer;
+ }
+
+
+/*
+@font-face { font-family: Muli;
+            font-style: normal;
+            font-weight: 300;
+            src: url('./Muli/Muli-Regular.ttf');
+        }
+@font-face { font-family: Muli;
+            font-style: normal;
+            font-weight: 400;
+            src: url('./Muli/Muli-SemiBold.ttf');
+        }
+@font-face { font-family: Muli;
+            font-style: normal;
+            font-weight: 600;
+            src: url('./Muli/Muli-Bold.ttf');
+        }
+@font-face { font-family: Muli;
+            font-style: normal;
+            font-weight: 800;
+            src: url('./Muli/Muli-Black.ttf');
+        }
+body {
+    background-color: #E2EDF8;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    font-weight: 900;
+    margin: 50px auto;
+    font-size: 4.5em;
+    line-height: .7;
+}
+
+.header-med {
+    line-height: .2;
+    font-weight: 600;
+    margin: 50px auto;
+    font-size: 2.5em;
+}
+
+.text {
+    font-family: 'Muli', sans-serif;
+    color: #1B3947;
+    text-align: center;
+}
+
+.copy {
+    font-weight: 200;
+    margin: 30px auto;
+    font-size: 1.6em;
+    width: 60%;
+    line-height: 1.3em
+}
+
+.button1 {
+    background-color: #3D5F75;
+    color: white;
+    padding: 4pt 10pt;
+    font-size: 1.3em;
+    font-weight: 400;
+    border-radius: 8px;
+    border: #1B3947;
+    border-width: 3px;
+}
+
+.button-contain {
+    margin: 20px auto;
+    text-align: center;
+    height: 50px;
+
+} */
+</style><style type="text/css">.header {
+  margin: 10px;
+  margin-bottom: 20px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  height:7vh;
+  -ms-flex-align: center;
+      align-items: center;
+  font-family: Dosis;
+  background-color: white;
+  padding: 20px;
+  padding-bottom: 30px;
+   border-bottom: 1px solid #DEE2E3;
+  color: #3a3a3a;
+}
+
+.header img {
+  height: 50px;
+  width: 50px;
+}
+
+.header button {
+  height: 67%;
+  width: 100px;
+  padding: 5px;
+  margin: 5px;
+  border-color: #3a3a3a;
+  color: #3a3a3a;
+  font-family: Dosis;
+  font-size: 12px;
+}
+
+.header button:hover {
+  background-color: #56D394;
+  color: white;
+  border-color: white;
+  cursor: pointer;
+}
+
+.logo {
+  color: #56D394;
+}
+
+/*
+a {
+    text-decoration: none;
+}
+
+.nav_contain {
+    background-color: #3D5F75;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+
+}
+.nav {
+    width: 33%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0px 10px
+}
+
+.nav_text {
+    color: white;
+    padding: 14px 10px;
+    margin: 3px 0px;
+    text-decoration: none !important;
+    font-weight: 400;
+}
+
+.nav_header {
+    text-align: center;
+    font-weight: 600;
+    margin: auto;
+    font-size: 2.5em;
+    color: white;
+}
+
+.logout {
+    width: 40%;
+    display: block;
+}
+.logout_text {
+    float: right;
+    padding-right: 20px;
+} */
+</style><style type="text/css">.tabs {
+  width: 15vw;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+}
+
+.tabs img {
+  height: 40px;
+  width: 40px;
+  padding-right: 30px;
+  padding-left: 15px;
+}
+
+.tabs div {
+  height: 60px;
+  width: 50%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  font-family: Dosis;
+  -ms-flex-align: center;
+      align-items: center;
+  margin: 10px;
+}
+</style><style type="text/css">.stats {
+  width: 25vw;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+}
+
+.stats div {
+  height: 38%;
+  width: 90%;
+  background-color: #56D394;
+  margin-top: 15px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: Dosis;
+}
+
+.stats img{
+  height:125px;
+  width:125px;
+}
+
+.stats p{
+  margin: 0;
+  padding: 0;
+
+}
+</style><style type="text/css">.background {
+  margin: 0;
+  background-color: white;
+}
+
+.header {
+  margin: 10px;
+  margin-bottom: 20px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  height:7vh;
+  -ms-flex-align: center;
+      align-items: center;
+  font-family: Dosis;
+  background-color: white;
+  padding: 20px;
+  padding-bottom: 30px;
+   border-bottom: 1px solid #DEE2E3;
+  color: #3a3a3a;
+}
+
+.header img {
+  height: 50px;
+  width: 50px;
+}
+
+.header button {
+  height: 67%;
+  width: 100px;
+  padding: 5px;
+  margin: 5px;
+  border-color: #3a3a3a;
+  color: #3a3a3a;
+  font-family: Dosis;
+  font-size: 12px;
+}
+
+.header button:hover {
+  background-color: #56D394;
+  color: white;
+  border-color: white;
+}
+
+.logo {
+  color: #56D394;
+}
+.contentContainer {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+}
+
+.tabs {
+  width: 15vw;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+}
+
+.tabs img {
+  height: 40px;
+  width: 40px;
+  padding-right: 30px;
+  padding-left: 15px;
+}
+
+.tabs div {
+  height: 60px;
+  width: 50%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  font-family: Dosis;
+  -ms-flex-align: center;
+      align-items: center;
+  margin: 10px;
+}
+
+
+.dashboard {
+  width: 50vw;
+}
+
+
+.offRow {
+  background-color: #DEE2E3;
+}
+
+.tableStyle {
+  width: 100%;
+}
+
+.tableStyle tr{
+  height: 40px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.stats {
+  width: 25vw;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+}
+
+.stats div {
+  height: 38%;
+  width: 90%;
+  background-color: #56D394;
+  margin-top: 15px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: Dosis;
+}
+
+.stats img{
+  height:125px;
+  width:125px;
+}
+
+.stats p{
+  margin: 0;
+  padding: 0;
+
+}
+</style><style type="text/css">.problemTable {
+    width: 100%;
+  }
+
+  .problemTable tr{
+    height: 40px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    -ms-flex-align: center;
+        align-items: center;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .offRow {
+    background-color: #DEE2E3;
+  }
+</style><style type="text/css">.sub-contain {
+    margin-top: 100px;
+    margin-left: 400px;
+}
+
+.dropstyle {
+    background-color: red;
+}
+
+.input-text {
+    font-size: 1.5em;
+    font-family: 'Muli', sans-serif;
+    color: #1B3947;
+    text-align: left;
+    margin: 5px;
+}
+
+.input1 {
+    width: 20%;
+    height: 45px;
+    padding: 12px 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 1.5em;
+    resize: none;
+    text-align: left;
+    margin-bottom: 10px;
+}
+.input2 {
+    width: 60%;
+    height: 45px;
+    padding: 12px 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 1.5em;
+    resize: none;
+    text-align: left;
+    margin-bottom: 10px;
+    
+}
+
+.input3 {
+    width: 60%;
+    height: 180px;
+    padding: 12px 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 1.5em;
+    resize: none;
+    text-align: left;
+    margin-bottom: 10px;
+    
+}</style></head>
+  <body data-gr-c-s-loaded="true">
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script type="text/javascript" src="./_CodeSprint___files/bundle.js"></script>
+
+<iframe style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; border: none; z-index: 2147483647;" src="./_CodeSprint___files/saved_resource.html"></iframe></body></html>
