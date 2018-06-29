@@ -9,11 +9,6 @@ const iconFour = require('./../css/images/rocket.png');
 
 
 class Nav extends Component {
-  constructor() {
-        super();
-
-    }
-
 
     render() {
         return (
@@ -34,10 +29,5 @@ class Nav extends Component {
     }
 }
 
-
-
-function mapStateToProps(state) {
-    return state;
-  }
 
   export default Nav

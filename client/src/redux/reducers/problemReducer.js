@@ -5,11 +5,7 @@ const initialState = {
  user: {},
  problem: [],
  allProblems: [],
-<<<<<<< Updated upstream
  solved: []
-
-=======
->>>>>>> Stashed changes
 }
 
 let GET_PROBLEM_BY_ID = "GET_PROBLEM_BY_ID";
@@ -29,12 +25,9 @@ export default (state = initialState, action) => {
             return Object.assign({}, state, {solved: action.payload.data});
         case ADD_PROBLEM + '_FULFILLED':
             return { ...state, problem: action.payload };
-<<<<<<< Updated upstream
         case GET_USER_INFO_FULFILLED:
-              console.log( 'this is action.payload', action.payload.data)
-                return Object.assign( {}, state, {user: action.payload.data} );
-=======
->>>>>>> Stashed changes
+              console.log( 'this is action.payload', action.payload)
+                return Object.assign( {}, state, {user: action.payload} );
         default:
             return state
     }
@@ -45,7 +38,7 @@ export function getUserInfo() {
     return {
       type: GET_USER_INFO,
       payload: axios.get('/auth/me').then(res => {
-        console.log('.then', res )
+        console.log('.then', res.data )
         return res.data
       })
     }
@@ -65,14 +58,13 @@ export function getProblems() {
     }
 }
 
-export function addProblem(name, instructions, testUrl, difficulty) {
+export function addProblem(name, instructions, testUrl) {
     return {
         type: ADD_PROBLEM,
         payload: axios.post('/api/addProblem', {
             name,
             instructions,
-            testUrl,
-            difficulty
+            testUrl
         }).then(response => {
             return response.data
         })

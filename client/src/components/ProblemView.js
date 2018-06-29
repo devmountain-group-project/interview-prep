@@ -114,6 +114,7 @@ class ProblemView extends Component {
                   <div className= 'spec-runner'>
                     {this.resultsToDisplay(results)}
                   </div>
+
                 </div>
 
                 <div className= 'code-editor'>

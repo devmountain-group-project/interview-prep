@@ -5,7 +5,6 @@ import axios from 'axios';
 import {getSolvedProblems, solved, getUserInfo} from './../redux/reducers/problemReducer.js'
 import '../css/main.css'
 import '../css/stats.css'
-import axios from 'axios'
 
 const iconFive = require('./../css/protect.png');
 // const { getUserInfo, user } = this.props;
@@ -13,9 +12,9 @@ const iconFive = require('./../css/protect.png');
 
 
 class Stats extends Component {
- 
 
- 
+
+
 
 
   constructor(props) {
