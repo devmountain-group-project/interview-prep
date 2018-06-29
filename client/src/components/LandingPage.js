@@ -13,6 +13,7 @@ class LandingPage extends Component {
                             <p className="middle-text">Busey ipsum dolor sit amet. Sometimes horses cough and fart at the same time, so stay out of the range of its butt muscle because a horses butt muscle is thick.Have you urinated? Have you drained your bladder? Are you free? Because if you haven't it will only come out later. I'm giving you some information that your bodily fluids may penetrate your clothing fibre's without warning</p>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 <div>
                     <h1 className="text header">Welcome to Interview Prepper</h1>
                     <p className ="text copy">Busey ipsum dolor sit amet. Sometimes horses cough and fart at the same time, so stay out of the range of its butt muscle because a horses butt muscle is thick.Have you urinated? Have you drained your bladder? Are you free? Because if you havent it will only come out later. Im giving you some information that your bodily fluids may penetrate your clothing fibres without warning</p>
@@ -27,6 +28,15 @@ class LandingPage extends Component {
                                 <a href="http://localhost:3005/auth"><button className="button1">Login</button></a>
                             </div>
                     </div>
+>>>>>>> Stashed changes
+=======
+                <div className="header">
+                    <h6 className="logo">{logo}</h6>
+                    <a href="http://localhost:3005/auth"><button>Login</button></a> 
+                </div>
+                <div>
+                    <h2> Sharpen your skills </h2>
+                    <p> Our website is a place for you to come and brush up on your coding. Master your Javascript skills with toy problems of varying difficulty levels. </p>
 >>>>>>> Stashed changes
                 </div>
             </div>

@@ -5,28 +5,42 @@ import axios from 'axios';
 import {getSolvedProblems, solved, getUserInfo} from './../redux/reducers/problemReducer.js'
 import '../css/main.css'
 import '../css/stats.css'
+import axios from 'axios'
+
 const iconFive = require('./../css/protect.png');
 // const { getUserInfo, user } = this.props;
 
 
 
 class Stats extends Component {
-  constructor() {
-    super();
+ 
+
+ 
+
+
+  constructor(props) {
+    super(props)
 
     this.state = {
-      points: 0
+      username: 'Placeholder username',
+      retrievedUsername: false
     }
   }
-addPoints() {
-  var totalPoints = this.props.problemReducer.solved.points;
-  this.setState({points: totalPoints});
-}
+
   componentDidMount() {
-      getUserInfo();
-      this.addPoints()
+    if(this.state.retrievedUsername === false) {
+      axios.get('/auth/me').then(res => {
+        if(res.data) {
+          this.setState({username: res.data.username, retrievedUsername: true})
+        }
+      })
+    }
   }
 
+  addPoints() {
+    var totalPoints = this.props.problemReducer.solved.points;
+    this.setState({points: totalPoints});
+  }
 
     render() {
 
@@ -38,8 +52,8 @@ addPoints() {
           <div className="stats">
             <div>
               <img src={iconFive}/>
-              <h3>McKay Archibald</h3>
-
+              <h3>{this.state.username}</h3>
+              <p>Settings</p>
             </div>
             <div className="statsDisplay">
               <h2>Stats</h2>

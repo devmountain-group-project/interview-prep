@@ -26,6 +26,25 @@ a {
    cursor: pointer;
  }
 
+ .submitButton {
+    height: 67%;
+    width: 100px;
+    padding: 5px;
+    margin: 5px;
+    border-color: #3a3a3a;
+    color: #3a3a3a;
+    font-family: Dosis;
+    font-size: 12px;
+    cursor: pointer;
+ }
+
+ .submitButton:hover {
+    background-color: #56D394;
+    color: white;
+    border-color: white;
+    cursor: pointer;
+ }
+
 
 /*
 @font-face { font-family: Muli;
