@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Embed from 'react-runkit'
 import { connect } from 'react-redux'
 import axios from 'axios'
-//import './../css/problemView.css';
+import './../css/problemView.css';
 import{getProblemByID} from './../redux/reducers/problemReducer.js'
 import results from '../jasmine-test-results.json'
 

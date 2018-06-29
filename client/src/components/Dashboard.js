@@ -1,14 +1,29 @@
 import React, {Component} from 'react'
+import { connect } from 'react-redux'
+import axios from 'axios'
+import { Link } from 'react-router-dom';
 import Header from './Header';
 import Nav from './Nav';
 import Stats from './Stats';
 import './../css/dashboard.css';
 
+import{getSolvedProblems, solved, getProblems, allProblems} from './../redux/reducers/problemReducer.js'
 
 
 
 class Dashboard extends Component {
+  constructor() {
+    super();
+
+  }
+
+  componentDidMount() {
+      this.props.getSolvedProblems();
+      this.props.getProblems();
+  }
     render(){
+      const solved = this.props.problemReducer.solved;
+      const allProblems = this.props.problemReducer.allProblems;
         return(
             <div className="background">
                 <div>
@@ -20,30 +35,39 @@ class Dashboard extends Component {
                   </div>
                   <div className="dashboard">
                     <div>
-                      <h3>Finished Sprints</h3>
-                      <table className="tableStyle">
-                        <tr className="offRow">
-                        <div>Problem 6</div>
-                        <div>1000pts</div>
-                        </tr>
-                        <tr>
-                            <div>Problem 7</div>
-                            <div>1000pts</div>
+                    <h1>Finished Sprints</h1>
+                    <table className="problemTable">
+                    {solved.map((item,index) => {
+                      var problemName ='';
+                          if(index % 2 === 0) {
+                            allProblems.forEach(problem => {
+                              if (item.problem_id === problem.id) {
+                                problemName = problem.name;
+                              }
+                            });
+                            return(
+                          <tr>
 
-                        </tr>
-                        <tr className="offRow">
-                          <div>Problem 8</div>
-                          <div>1000pts</div>
-                        </tr>
-                        <tr>
-                          <div>Problem 9</div>
-                          <div>1000pts</div>
-                        </tr>
-                        <tr className="offRow">
-                          <div>Problem 10</div>
-                          <div>1000pts</div>
-                        </tr>
-                      </table>
+                          <div><Link to={`/problemview/${item.problem_id}`}>{problemName}</Link></div>
+                          <div>{item.points} Meters</div>
+
+                          </tr>
+                        )
+                        } else {
+                          allProblems.forEach(problem => {
+                            if (item.problem_id === problem.id) {
+                              problemName = problem.name;
+                            }
+                          });
+                          return (
+                          <tr className="offRow">
+                          <div><Link to={`/problemview/${item.problem_id}`}>{problemName}</Link></div>
+                          <div>{item.points} Meters</div>
+                          </tr>
+                        )
+                        }
+                    })}
+                    </table>
                     </div>
                   </div>
                   <div>
@@ -55,7 +79,12 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard
+function mapStateToProps(state) {
+    return state;
+
+  }
+
+export default connect( mapStateToProps, { getSolvedProblems, getProblems } )( Dashboard );
 
 // <img src={icon} />
 // <h6 className="logo">{logo}</h6>

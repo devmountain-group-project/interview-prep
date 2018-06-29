@@ -1,13 +1,19 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
 import '../css/main.css'
 import '../css/nav.css'
-const iconTwo = require('./../css/checklist.png');
-const iconThree = require('./../css/flask.png');
-const iconFour = require('./../css/paper-plane.png');
+const iconTwo = require('./../css/images/stopwatch.png');
+const iconThree = require('./../css/images/runner.png');
+const iconFour = require('./../css/images/rocket.png');
 
 
 class Nav extends Component {
+  constructor() {
+        super();
+
+    }
+
 
     render() {
         return (
@@ -30,4 +36,8 @@ class Nav extends Component {
 
 
 
-export default Nav;
+function mapStateToProps(state) {
+    return state;
+  }
+
+  export default Nav
