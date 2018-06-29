@@ -1,0 +1,63 @@
+body {
+    margin: 0px;
+}
+
+.bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    height: 1300px;
+    width:  auto;
+    background-image:url('./../css/runner.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;  
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.image.jpg',sizingMethod='scale');
+    -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='image.jpg',sizingMethod='scale')";
+ }
+
+ .middle {
+    box-sizing: border-box;
+    position: absolute;
+    height: 500px;
+    width: 45%;
+    margin: auto;
+    background-color: rgba(255,255,255, .5);
+    border-radius: 10px;
+    border-color: black;
+    top: 30%;
+    bottom: 50%;
+    padding: 30px;
+ }
+
+ .middle-text {
+    color: black;
+    font-family: dosis;
+    font-size: 1.4em;
+
+ }
+
+ .logo-landing {
+    margin: 50px;
+    text-align: center;
+    font-size: 3em;
+    color: #56D394;
+    line-height: 1px;
+    letter-spacing: .04em;
+  }
+
+  .button-contain {
+    display: flex;
+    text-align: center;
+    margin: auto;
+    justify-content: center;
+  }
+  .button1 {
+      padding: 5px 18px;
+      font-size: 1.1em;
+      text-align: center;
+      border-radius: 5px;
+      border: solid 1px black;
+      background-color: rgba(255,255,255, .6);
+      
+  }
