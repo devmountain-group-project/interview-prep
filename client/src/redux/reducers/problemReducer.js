@@ -1,8 +1,6 @@
 import axios from 'axios';
 
 const initialState = {
-
- user: {},
  problem: [],
  allProblems: [],
  solved: []
@@ -12,8 +10,6 @@ let GET_PROBLEM_BY_ID = "GET_PROBLEM_BY_ID";
 let GET_PROBLEMS = "GET_PROBLEMS";
 let ADD_PROBLEM = "ADD_PROBLEM";
 let GET_SOLVED_PROBLEMS = "GET_SOLVED_PROBLEMS";
-let GET_USER_INFO = "GET_USER_INFO";
-let GET_USER_INFO_FULFILLED = 'GET_USER_INFO_FULFILLED'
 
 export default (state = initialState, action) => {
     switch(action.type) {
@@ -25,24 +21,10 @@ export default (state = initialState, action) => {
             return Object.assign({}, state, {solved: action.payload.data});
         case ADD_PROBLEM + '_FULFILLED':
             return { ...state, problem: action.payload };
-        case GET_USER_INFO_FULFILLED:
-              console.log( 'this is action.payload', action.payload)
-                return Object.assign( {}, state, {user: action.payload} );
         default:
             return state
     }
 }
-
-export function getUserInfo() {
-  console.log(1111, "Got here")
-    return {
-      type: GET_USER_INFO,
-      payload: axios.get('/auth/me').then(res => {
-        console.log('.then', res.data )
-        return res.data
-      })
-    }
-  }
 
 export function getProblemByID(id) {
     return {
@@ -58,12 +40,13 @@ export function getProblems() {
     }
 }
 
-export function addProblem(name, instructions, testUrl) {
+export function addProblem(name, instructions, testUrl, difficulty) {
     return {
         type: ADD_PROBLEM,
         payload: axios.post('/api/addProblem', {
             name,
             instructions,
+            difficulty,
             testUrl
         }).then(response => {
             return response.data

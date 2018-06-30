@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import { Link } from 'react-router-dom';
 import '../css/main.css'
 import '../css/header.css'
 const logo = require('./../css/images/shoe.png');
@@ -8,7 +7,7 @@ const icon = require('./../css/images/shoe-icon.png');
 class Header extends Component {
 
     render() {
-      // const logo = "<CodeSprint/>";
+
         return (
             <div className="nav_contain">
                 <div className="nav">

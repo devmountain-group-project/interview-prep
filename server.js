@@ -120,7 +120,6 @@ app.get('/auth/logout', (req, res) => {
 
 app.get("/auth/me", (req, res) => {
   if (req.isAuthenticated()) {
-    console.log(44444444444, req.user);
     return res.send(req.user);
   } else {
     return res.status(404).send("user not authenticated");
