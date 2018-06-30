@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import axios from 'axios'
 import { Link } from 'react-router-dom';
 import Header from './Header';
 import Nav from './Nav';
@@ -12,10 +11,6 @@ import{getSolvedProblems, solved, getProblems, allProblems} from './../redux/red
 
 
 class Dashboard extends Component {
-  constructor() {
-    super();
-
-  }
 
   componentDidMount() {
       this.props.getSolvedProblems();
@@ -85,7 +80,3 @@ function mapStateToProps(state) {
   }
 
 export default connect( mapStateToProps, { getSolvedProblems, getProblems } )( Dashboard );
-
-// <img src={icon} />
-// <h6 className="logo">{logo}</h6>
-// <button>Logout</button>

@@ -3,17 +3,12 @@ import Header from './Header';
 import Nav from './Nav';
 import Stats from './Stats';
 import { connect } from 'react-redux'
-import axios from 'axios'
 import { Link } from 'react-router-dom';
 import './../css/problems.css';
 
 import{getProblems, allProblems} from './../redux/reducers/problemReducer.js'
 
 class Problems extends Component {
-  constructor() {
-    super();
-
-  }
 
   componentDidMount() {
       this.props.getProblems();

@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
-import {connect} from 'react-redux';
 import '../css/main.css'
 import '../css/nav.css'
 const iconTwo = require('./../css/images/stopwatch.png');
@@ -14,14 +13,14 @@ class Nav extends Component {
         return (
             <div className="tabs">
             <div>
-              <img src={iconTwo}/>
+              <img src={iconTwo} alt='pic'/>
               <Link to={`/dashboard`}>Score Card</Link>
             </div>
-            <div><img src={iconThree}/>
+            <div><img src={iconThree} alt='pic'/>
                   <Link to={`/problems`}>Sprints</Link>
             </div>
             <div>
-              <img src={iconFour}/>
+              <img src={iconFour} alt='pic'/>
               <Link to={`/submission`}>Submit</Link>
             </div>
             </div>

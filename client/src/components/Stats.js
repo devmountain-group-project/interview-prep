@@ -1,8 +1,7 @@
 import React, {Component} from 'react'
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import {getSolvedProblems, solved, getUserInfo} from './../redux/reducers/problemReducer.js'
+import {getSolvedProblems} from './../redux/reducers/problemReducer.js'
 import '../css/main.css'
 import '../css/stats.css'
 
@@ -12,20 +11,16 @@ const iconFive = require('./../css/protect.png');
 
 
 class Stats extends Component {
-
-
-
-
-
   constructor(props) {
     super(props)
 
     this.state = {
-      username: 'Placeholder username',
+      username: '',
       retrievedUsername: false
     }
   }
 
+  //THIS DISPLAYS USERNAME OF LOGGED IN USER
   componentDidMount() {
     if(this.state.retrievedUsername === false) {
       axios.get('/auth/me').then(res => {
@@ -42,15 +37,11 @@ class Stats extends Component {
   }
 
     render() {
-
       const solved = this.props.problemReducer.solved;
-
-
-      const logo = "<CodeSprint/>";
         return (
           <div className="stats">
             <div>
-              <img src={iconFive}/>
+              <img src={iconFive} alt='pic'/>
               <h3>{this.state.username}</h3>
               <p>Settings</p>
             </div>
@@ -72,4 +63,4 @@ function mapStateToProps(state) {
 
   }
 
-export default connect( mapStateToProps, { getSolvedProblems, getUserInfo } )( Stats );
+export default connect( mapStateToProps, { getSolvedProblems } )( Stats );
