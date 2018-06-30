@@ -2,18 +2,19 @@ import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
 import '../css/main.css'
 import '../css/header.css'
-const icon = require('./../css/images/shoe.png');
-
+const logo = require('./../css/images/shoe.png');
+const icon = require('./../css/images/shoe-icon.png');
 
 class Header extends Component {
 
     render() {
-      const logo = "<CodeSprint/>";
+      // const logo = "<CodeSprint/>";
         return (
             <div className="nav_contain">
                 <div className="nav">
                 <div className='header'>
                 <img src={icon} />
+                <img src={logo}/>
                 <a href="http://localhost:3005/auth/logout"><button>Logout</button></a>
                 </div>
                 </div>

@@ -2,10 +2,14 @@ import React, {Component} from 'react'
 import Embed from 'react-runkit'
 import { connect } from 'react-redux'
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 import './../css/problemView.css';
 import{getProblemByID} from './../redux/reducers/problemReducer.js'
 
 
+const loading = require('./../css/images/loading.gif')
+const flag = require('./../css/images/flag.png')
+const exit = require('./../css/images/error.png')
 
 
 class ProblemView extends Component {
@@ -111,18 +115,37 @@ class ProblemView extends Component {
 
 
             <div className= 'problem-view'>
-
+                <div className='exit'>
+                <Link to={'/dashboard'}><img src={exit}/></Link>
+                </div>
                 <div className= 'left-container'>
+                  <div className='problem-header'>
+                    <h3>{this.props.state.problemReducer.problem[0].name}</h3>
+                    <h3>{this.props.state.problemReducer.problem[0].difficulty} meters</h3>
+                  </div>
+                  <div className='problem-tabs'>
+                  <div className='title-tab'>Instructions</div><div className='title-tab-off'>Output</div>
+                  </div>
                   <div className= 'instructions'>
                   {this.props.state.problemReducer.problem[0].instructions}
                   </div>
-                  <div className= 'spec-runner'>
-                    {/* {this.resultsToDisplay(results)} */}
-                  </div>
-
+                  {
+                  // <div className= 'spec-runner'>
+                  //   {/* {this.resultsToDisplay(results)} */}
+                  // </div>
+                }
                 </div>
 
                 <div className= 'code-editor'>
+                  <div className= 'code-header'>
+                    <div className='title-tab'>Solution</div>
+                      <div className='final-submit'>
+                        {this.state.finalSubmit ?
+                          <button onClick={() =>this.submit()}>Final Submission</button> :
+                        null}
+                        <img src={flag}/>
+                      </div>
+                  </div>
                     {/* THIS IS THE RUNKIT COMPONENT */}
                     <Embed onLoad = {(e) => {this.storeRef(e)}} onEvaluate={() => {
                         this.getNotebook()
@@ -130,17 +153,13 @@ class ProblemView extends Component {
                     }} minHeight='500px'/>
 
                 </div>
-                {this.state.finalSubmit ?
-                    <button onClick={() =>this.submit()}>Final Submission</button> :
-                    null}
-
-
             </div>
 
         )
       } else {
-        return <div>
-                  <p>loading</p>
+        return <div className="loading">
+                  <img src={loading}/>
+                  <p>Loading...</p>
                 </div>
       }
     }
