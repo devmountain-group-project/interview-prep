@@ -23,9 +23,8 @@ class ProblemView extends Component {
         problemID: null,
         retrievedFile: false,
         showResults: false,
-        results: {}
-
-
+        results: {},
+        toggleOutput: false
     }
   }
 
@@ -128,12 +127,7 @@ class ProblemView extends Component {
                   </div>
                   <div className= 'instructions'>
                   {this.props.state.problemReducer.problem[0].instructions}
-                  </div>
-                  {
-                  // <div className= 'spec-runner'>
-                  //   {/* {this.resultsToDisplay(results)} */}
-                  // </div>
-                }
+                  </div> 
                 </div>
 
                 <div className= 'code-editor'>

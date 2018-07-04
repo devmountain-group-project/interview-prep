@@ -6,6 +6,7 @@ import LandingPage from './components/LandingPage';
 import Problems from './components/Problems';
 import ProblemView from './components/ProblemView';
 import Submission from './components/Submission';
+import UnitTestExample from './components/UnitTestExample';
 
 
 export default(
@@ -16,5 +17,6 @@ export default(
             <Route component={Problems} path = '/problems' />
             <Route component={ProblemView} path = '/problemview/:problem_id' />
             <Route component={Submission} path = '/submission' />
+            <Route component={UnitTestExample} path = '/unitTestExample'/>
         </Switch>
 )

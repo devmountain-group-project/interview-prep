@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Header from './Header';
 import Nav from './Nav';
 import Stats from './Stats';
@@ -16,7 +17,7 @@ class Submission extends Component {
         this.state = {
             testUrl: '',
             fileToTest: '',
-            difficulty: '',
+            difficulty: ['100 meters', '500 meters', '1000 meters'],
             name: '',
             instructions: '',
         }
@@ -49,13 +50,21 @@ class Submission extends Component {
                       <h1>Submit new problems</h1>
                       <h3>Thanks for helping our site grow</h3>
                       <p> You will need to insert the name, difficulty and instructions for the problem you want to submit. Before clicking on the submit problem button make sure to upload your unit test file first by clicking in the box that says "Click to upload file!". </p>
+                      <h4> Be sure to visit the unit test example page first to see how to write your test file. </h4>
                     </div>
+
+                        <div>
+                          <Link to={'/unitTestExample'}><button className="unitTestExampleBtn">Unit test example!!!</button></Link>
+                        </div> 
+
                     <div>
                       <form>
                         <p> Problem name:</p>
                         <input value={this.state.name} onChange={ (e) => this.setState({ name: e.target.value })}></input>
                         <p> Difficulty: </p>
-                        <input value={this.state.difficulty} onChange={ (e) => this.setState({ difficulty: e.target.value })}></input><br />
+                        <input type='radio' value={this.state.difficulty[0]} onChange={ (e) => this.setState({ difficulty: e.target.value })}></input>100 Meters<br />
+                        <input type='radio' value={this.state.difficulty[1]} onChange={ (e) => this.setState({ difficulty: e.target.value })}></input>500 Meters<br />
+                        <input type='radio' value={this.state.difficulty[2]} onChange={ (e) => this.setState({ difficulty: e.target.value })}></input>1000 Meters<br />
                         <p> Problem Instrctions: </p>
                         <textarea name="description" value={this.state.instructions} onChange={ (e) => this.setState({ instructions: e.target.value })}></textarea>
                         <div>
@@ -65,6 +74,7 @@ class Submission extends Component {
                     <br />
 
                     </div>
+
                     <div className="sub-contain">
                       {this.state.testFile ?
                           <div className= 'file-preview dropstyle'>
@@ -72,7 +82,7 @@ class Submission extends Component {
                           </div> :
                           <AddFile updateTestfile= {this.updateTestFile}/>
                       }
-                    </div>
+                    </div> 
             </div>
             <div>
               <Stats />
