@@ -31,6 +31,7 @@ a {
     width: 100px;
     padding: 5px;
     margin: 5px;
+    margin-left: 0;
     border-color: #3a3a3a;
     color: #3a3a3a;
     font-family: Dosis;
@@ -45,77 +46,51 @@ a {
     cursor: pointer;
  }
 
+ .unitTestExampleBtn {
+    width: 205px;
+    padding: 5px;
+    margin: 5px;
+    margin-left: 170px;
+    background-color: #df9bff;
+    border-color: #3a3a3a;
+    color: #3a3a3a;
+    font-family: Dosis;
+    font-size: 20px;
+    cursor: pointer;
+ }
 
-/*
-@font-face { font-family: Muli;
-            font-style: normal;
-            font-weight: 300;
-            src: url('./Muli/Muli-Regular.ttf');
-        }
-@font-face { font-family: Muli;
-            font-style: normal;
-            font-weight: 400;
-            src: url('./Muli/Muli-SemiBold.ttf');
-        }
-@font-face { font-family: Muli;
-            font-style: normal;
-            font-weight: 600;
-            src: url('./Muli/Muli-Bold.ttf');
-        }
-@font-face { font-family: Muli;
-            font-style: normal;
-            font-weight: 800;
-            src: url('./Muli/Muli-Black.ttf');
-        }
-body {
-    background-color: #E2EDF8;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.header {
-    font-weight: 900;
-    margin: 50px auto;
-    font-size: 4.5em;
-    line-height: .7;
-}
-
-.header-med {
-    line-height: .2;
-    font-weight: 600;
-    margin: 50px auto;
-    font-size: 2.5em;
-}
-
-.text {
-    font-family: 'Muli', sans-serif;
-    color: #1B3947;
-    text-align: center;
-}
-
-.copy {
-    font-weight: 200;
-    margin: 30px auto;
-    font-size: 1.6em;
-    width: 60%;
-    line-height: 1.3em
-}
-
-.button1 {
-    background-color: #3D5F75;
+ .unitTestExampleBtn:hover {
+    background-color: #56D394;
     color: white;
-    padding: 4pt 10pt;
-    font-size: 1.3em;
-    font-weight: 400;
-    border-radius: 8px;
-    border: #1B3947;
-    border-width: 3px;
-}
+    border-color: white;
+    cursor: pointer;
+ }
 
-.button-contain {
-    margin: 20px auto;
-    text-align: center;
-    height: 50px;
+ .backButton {
+    height: 67%;
+    width: 100px;
+    padding: 5px;
+    margin: 5px;
+    border-color: #3a3a3a;
+    color: #3a3a3a;
+    font-family: Dosis;
+    font-size: 12px;
+    cursor: pointer;
+ }
 
-} */
+ .backButton:hover {
+    background-color: #df9bff;
+    color: white;
+    border-color: white;
+    cursor: pointer;
+ }
+
+ .unitTestWords {
+     color: #56D394;
+ }
+
+ .testExample {
+     background-color: #3a3a3a;
+     color: #56D394;
+     margin-right: 650px;
+ }

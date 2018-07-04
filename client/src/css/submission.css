@@ -1,7 +1,7 @@
 .sub-contain {
     margin: 10px;
     margin-left: 400px;
-    margin-top: -200px;
+    margin-top: -250px;
 
 }
 
@@ -62,4 +62,9 @@
 
 .submission {
   width: 50vw;
+}
+
+.submission textarea {
+    height: 100px;
+    width: 300px;
 }
