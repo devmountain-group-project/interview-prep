@@ -6,7 +6,6 @@ import '../css/main.css'
 import '../css/stats.css'
 
 const iconFive = require('./../css/protect.png');
-// const { getUserInfo, user } = this.props;
 
 
 
@@ -16,39 +15,45 @@ class Stats extends Component {
 
     this.state = {
       username: '',
-      retrievedUsername: false
+      retrievedUsername: false,
+      points: 0
     }
   }
 
   //THIS DISPLAYS USERNAME OF LOGGED IN USER
   componentDidMount() {
-    if(this.state.retrievedUsername === false) {
-      axios.get('/auth/me').then(res => {
-        if(res.data) {
-          this.setState({username: res.data.username, retrievedUsername: true})
-        }
-      })
-    }
+    this.addPoints();
   }
 
   addPoints() {
-    var totalPoints = this.props.problemReducer.solved.points;
+    var totalPoints = 0;
+    var solvedProblems = this.props.problemReducer.solved;
+    var solvedObject = {};
+    for(var i = 0; i < solvedProblems.length; i++) {
+      solvedObject = this.props.problemReducer.solved[i];
+      for (var key in solvedObject) {
+        if(key === "points") {
+          totalPoints += solvedObject[key];
+        }
+      }
+    }
     this.setState({points: totalPoints});
   }
 
     render() {
       const solved = this.props.problemReducer.solved;
+      const user = this.props.problemReducer.user;
+
         return (
           <div className="stats">
             <div>
               <img src={iconFive} alt='pic'/>
-              <h3>{this.state.username}</h3>
-              <p>Settings</p>
+              <h3>{user.username}</h3>
             </div>
             <div className="statsDisplay">
               <h2>Stats</h2>
               <h4>Meters Ran</h4>
-              <p>100m</p>
+              <p>{this.state.points}m</p>
               <h4>Finished Sprints</h4>
               <p>{solved.length}</p>
             </div>
@@ -59,7 +64,7 @@ class Stats extends Component {
 
 
 function mapStateToProps(state) {
-    return state;
+    return state
 
   }
 
