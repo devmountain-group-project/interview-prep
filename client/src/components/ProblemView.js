@@ -103,6 +103,7 @@ class ProblemView extends Component {
     }
 
     render(){
+      const { id, problem } = this.props;
       if(this.props.state.problemReducer && this.props.state.problemReducer.problem[0]) {
           if(!this.state.retrievedFile) {
             this.getFile()

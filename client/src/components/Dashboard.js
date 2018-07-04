@@ -4,21 +4,28 @@ import { Link } from 'react-router-dom';
 import Header from './Header';
 import Nav from './Nav';
 import Stats from './Stats';
+import axios from 'axios';
 import './../css/dashboard.css';
 
-import{getSolvedProblems, solved, getProblems, allProblems} from './../redux/reducers/problemReducer.js'
+import{getSolvedProblems, solved, getProblems, allProblems, getUser, user} from './../redux/reducers/problemReducer.js'
 
 
 
 class Dashboard extends Component {
 
+
+
   componentDidMount() {
-      this.props.getSolvedProblems();
+      this.props.getUser();
       this.props.getProblems();
+      this.props.getSolvedProblems(this.props.problemReducer.user.id);
   }
+
     render(){
       const solved = this.props.problemReducer.solved;
       const allProblems = this.props.problemReducer.allProblems;
+      const user = this.props.problemReducer.user;
+      console.log(user)
         return(
             <div className="background">
                 <div>
@@ -79,4 +86,4 @@ function mapStateToProps(state) {
 
   }
 
-export default connect( mapStateToProps, { getSolvedProblems, getProblems } )( Dashboard );
+export default connect( mapStateToProps, { getSolvedProblems, getProblems, getUser } )( Dashboard );

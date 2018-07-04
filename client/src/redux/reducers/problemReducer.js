@@ -3,13 +3,16 @@ import axios from 'axios';
 const initialState = {
  problem: [],
  allProblems: [],
- solved: []
+ solved: [],
+ user: {}
 }
 
 let GET_PROBLEM_BY_ID = "GET_PROBLEM_BY_ID";
 let GET_PROBLEMS = "GET_PROBLEMS";
 let ADD_PROBLEM = "ADD_PROBLEM";
 let GET_SOLVED_PROBLEMS = "GET_SOLVED_PROBLEMS";
+let GET_USER_INFO = "GET_USER_INFO";
+
 
 export default (state = initialState, action) => {
     switch(action.type) {
@@ -21,15 +24,25 @@ export default (state = initialState, action) => {
             return Object.assign({}, state, {solved: action.payload.data});
         case ADD_PROBLEM + '_FULFILLED':
             return { ...state, problem: action.payload };
+        case GET_USER_INFO + '_FULFILLED':
+            return Object.assign( {}, state, {user: action.payload.data} );
         default:
             return state
     }
 }
 
+
 export function getProblemByID(id) {
     return {
       type: GET_PROBLEM_BY_ID,
       payload: axios.get('/api/getProblem/' + id)
+    }
+}
+
+export function getUser() {
+    return {
+      type: GET_USER_INFO,
+      payload: axios.get('/auth/me')
     }
 }
 
@@ -54,8 +67,7 @@ export function addProblem(name, instructions, testUrl, difficulty) {
     }
 }
 
-export function getSolvedProblems() {
-  const user_id = 3
+export function getSolvedProblems(user_id) {
   return {
     type: GET_SOLVED_PROBLEMS,
     payload: axios.get('/api/getSolvedProblems/' + user_id)
