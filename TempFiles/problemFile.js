@@ -1,3 +1,4 @@
+
 module.exports = solution = (number) =>{
   var sum = 0;
   
@@ -8,3 +9,4 @@ module.exports = solution = (number) =>{
   }
   return sum;
 }
+

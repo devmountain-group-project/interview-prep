@@ -55,7 +55,7 @@ class Submission extends Component {
                     </div>
 
                         <div>
-                          <Link to={'/unitTestExample'}><button className="unitTestExampleBtn">Unit test example!!!</button></Link>
+                          <Link to={'/unitTestExample'}><button className="unitTestExampleBtn">Unit test examples!!!</button></Link>
                         </div> 
 
                     <div>

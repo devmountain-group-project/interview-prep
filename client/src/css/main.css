@@ -67,14 +67,13 @@ a {
  }
 
  .backButton {
-    height: 67%;
     width: 100px;
     padding: 5px;
     margin: 5px;
     border-color: #3a3a3a;
     color: #3a3a3a;
     font-family: Dosis;
-    font-size: 12px;
+    font-size: 15px;
     cursor: pointer;
  }
 
@@ -85,12 +84,37 @@ a {
     cursor: pointer;
  }
 
+ .buttonContain {
+   display: flex;
+   justify-content: space-between
+ }
+
  .unitTestWords {
-     color: #56D394;
+     color: #3a3a3a;
+     margin-left: 600px;
  }
 
  .testExample {
      background-color: #3a3a3a;
      color: #56D394;
-     margin-right: 650px;
+     margin-right: 280px;
+     margin-left: 260px;
+ }
+
+ .docsButton {
+  width: 100px;
+  padding: 5px;
+  margin: 5px;
+  border-color: #3a3a3a;
+  color: #3a3a3a;
+  font-family: Dosis;
+  font-size: 15px;
+  cursor: pointer;
+ }
+
+ .docsButton:hover {
+  background-color: #df9bff;
+  color: white;
+  border-color: white;
+  cursor: pointer;
  }
