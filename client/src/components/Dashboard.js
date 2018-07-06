@@ -25,7 +25,6 @@ class Dashboard extends Component {
       const solved = this.props.problemReducer.solved;
       const allProblems = this.props.problemReducer.allProblems;
       const user = this.props.problemReducer.user;
-      console.log(user)
         return(
             <div className="background">
                 <div>

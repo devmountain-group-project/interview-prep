@@ -19,12 +19,13 @@ class ProblemView extends Component {
         code: '',
         notebookRef: undefined,
         testFile: '',
+        testFileExists: false,
         finalSubmit: true,
         problemID: null,
         retrievedFile: false,
         showResults: false,
         results: {},
-        toggleOutput: false
+        toggleTabs: false
     }
   }
 
@@ -76,9 +77,10 @@ class ProblemView extends Component {
         }
         return arr.map((spec, index)=>{
           return(
-            <h1>
-              {spec.description}
-            </h1>
+            <div key= {index}>
+                <h1>{spec.description}</h1>
+                <h3>{spec.status}</h3>
+            </div>
           )
         })
       }
@@ -98,7 +100,17 @@ class ProblemView extends Component {
     }
 
     writeTestFile = () => {
+        this.setState({testFileExists: true})
         axios.post('/api/writeTestFile', {content: this.state.testFile})
+    }
+
+    handleToggleTab =() => {
+        if(!this.state.toggleTabs){
+            this.setState({toggleTabs: true})
+            
+        }else(
+            this.setState({toggleTabs: false})
+        )    
     }
 
     render(){
@@ -107,7 +119,7 @@ class ProblemView extends Component {
           if(!this.state.retrievedFile) {
             this.getFile()
           }
-          if(this.state.testFile){
+          if(this.state.testFile && !this.state.testFileExists){
             this.writeTestFile()
           }
         return(
@@ -118,16 +130,26 @@ class ProblemView extends Component {
                 <Link to={'/dashboard'}><img src={exit}/></Link>
                 </div>
                 <div className= 'left-container'>
-                  <div className='problem-header'>
-                    <h3>{this.props.state.problemReducer.problem[0].name}</h3>
-                    <h3>{this.props.state.problemReducer.problem[0].difficulty} meters</h3>
-                  </div>
-                  <div className='problem-tabs'>
-                  <div className='title-tab'>Instructions</div><div className='title-tab-off'>Output</div>
-                  </div>
-                  <div className= 'instructions'>
-                  {this.props.state.problemReducer.problem[0].instructions}
-                  </div> 
+
+                    <div className='problem-header'>
+                        <h3>{this.props.state.problemReducer.problem[0].name}</h3>
+                        <h3>{this.props.state.problemReducer.problem[0].difficulty} meters</h3>
+                    </div>
+                    <div className='problem-tabs'>
+                        <div className='title-tab' onClick={()=> this.handleToggleTab()}>Instructions</div><div className='title-tab-off' onClick={()=> this.handleToggleTab()}>Output</div>
+                    </div>
+                    {this.state.toggleTabs ?
+                        <div className = 'instructions'>
+                            {/* DISPLAYS THE JASMINE TEST RESULTS */}
+                            {this.state.results ?
+                                <div>
+                                    {this.resultsToDisplay(this.state.results)}
+                                </div>: null} 
+                        </div>: 
+
+                        <div className= 'instructions'>
+                            {this.props.state.problemReducer.problem[0].instructions}
+                        </div>}
                 </div>
 
                 <div className= 'code-editor'>
