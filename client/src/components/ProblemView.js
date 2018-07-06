@@ -20,7 +20,7 @@ class ProblemView extends Component {
         notebookRef: undefined,
         testFile: '',
         testFileExists: false,
-        finalSubmit: true,
+        finalSubmit: false,
         problemID: null,
         retrievedFile: false,
         showResults: false,
@@ -66,6 +66,7 @@ class ProblemView extends Component {
     // DISPLAYS TEST RESULTS
     resultsToDisplay =(results) =>{
         const arr = []
+        let failed = 0
         for  (var key in results){
           const suite = results[key]
           suite.specs.map((spec, index)=>{
@@ -75,7 +76,9 @@ class ProblemView extends Component {
             )
           })
         }
+    
         return arr.map((spec, index)=>{
+            console.log('this is the spec', spec)
           return(
             <div key= {index}>
                 <h1>{spec.description}</h1>
@@ -89,7 +92,7 @@ class ProblemView extends Component {
         console.log('running test')
         axios.get('http://localhost:3005/api/runTest').then(res => {
             console.log(res.data)
-            this.setState({showResults: true, results: res.data})
+            this.setState({showResults: true, results: res.data}, this.checkFinalSubmit )
         })
     }
 
@@ -111,6 +114,30 @@ class ProblemView extends Component {
         }else(
             this.setState({toggleTabs: false})
         )    
+    }
+
+    checkFinalSubmit = () => {
+        var results = this.state.results
+        var failed = 0
+        var arr = []
+        for  (var key in results){
+            const suite = results[key]
+            suite.specs.map((spec, index)=>{
+              const {description} = spec
+              return (
+                arr.push(spec)
+              )
+            })
+          }
+        for(var i = 0; i < arr.length; i ++){
+            if(arr[i].status === "failed"){
+                failed ++
+            }
+        }
+        if(failed === 0){
+            console.log('hitting this stuff')
+            this.setState({finalSubmit: true})
+        }
     }
 
     render(){
