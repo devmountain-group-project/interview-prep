@@ -25,6 +25,7 @@ class Submission extends Component {
 
     updateTestFile = (url) => {
         var newUrl= url.substring(0, url.indexOf('?'))
+        console.log(newUrl)
         this.setState({testUrl: newUrl})
     }
 
@@ -76,11 +77,11 @@ class Submission extends Component {
                     </div>
 
                     <div className="sub-contain">
-                      {this.state.testFile ?
+                      {this.state.testUrl ?
                           <div className= 'file-preview dropstyle'>
-                              {this.state.testFile}
+                              {this.state.testUrl}
                           </div> :
-                          <AddFile updateTestfile= {this.updateTestFile}/>
+                          <AddFile updateTestFile= {this.updateTestFile}/>
                       }
                     </div> 
             </div>
