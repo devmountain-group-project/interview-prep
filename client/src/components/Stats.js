@@ -26,6 +26,9 @@ class Stats extends Component {
   componentDidMount() {
     this.addPoints();
     this.props.getUser()
+    axios.get('/api/getDudes').then(res=> {
+      this.setState({littleDudes: res.data})
+    })
   }
 
   addPoints() {
@@ -44,7 +47,9 @@ class Stats extends Component {
   }
 
   randomIcon = () => {
+    console.log('these are the little dudes', this.state.littleDudes)
     var iconUrl = this.state.littleDudes[Math.floor(Math.random() * this.state.littleDudes.length)]
+    console.log('this is the iconUrl', iconUrl)
     this.setState({userIconUrl: iconUrl.profile_icon}, this.setUserIcon)
   }
 
