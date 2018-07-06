@@ -1,6 +1,8 @@
 const file = require("./problemFile.js")
-describe('Multiply', function() {
-  it('should be able to calculate product of two numbers', function() {
-    expect(multiply(5, 5)).toBeCloseTo(25);
+
+
+describe('Multiples of 3 or 5', function() {
+  it('Should return the sum of all the multiples of 3 or 5 below the number passed in', function() {
+    expect(solution(10)).toBeCloseTo(23);
   });
 });
