@@ -25,7 +25,7 @@ module.exports={
 
     writeTest: (req, res, next) => {
         const {content} = req.body
-        const fullContent = 'const file = require("./problemFile.js")' + content
+        const fullContent = 'const file = require("./problemFile.js")' + '\n' + content
             
             fs.writeFile('TempFiles/testFile.js', fullContent, (err) => {
                 if (err) throw err;
