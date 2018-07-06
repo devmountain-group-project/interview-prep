@@ -1,11 +1,13 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
 import axios from 'axios';
-import {getSolvedProblems} from './../redux/reducers/problemReducer.js'
+import {getSolvedProblems, getUser} from './../redux/reducers/problemReducer.js'
 import '../css/main.css'
 import '../css/stats.css'
 
 const iconFive = require('./../css/protect.png');
+
+
 
 
 
@@ -14,23 +16,24 @@ class Stats extends Component {
     super(props)
 
     this.state = {
-      username: '',
-      retrievedUsername: false,
-      points: 0
+      points: 0,
+      userIconUrl: '',
+      littleDudes: [],
     }
   }
-
+ 
   //THIS DISPLAYS USERNAME OF LOGGED IN USER
   componentDidMount() {
     this.addPoints();
+    this.props.getUser()
   }
 
   addPoints() {
     var totalPoints = 0;
-    var solvedProblems = this.props.problemReducer.solved;
+    var solvedProblems = this.props.solved;
     var solvedObject = {};
     for(var i = 0; i < solvedProblems.length; i++) {
-      solvedObject = this.props.problemReducer.solved[i];
+      solvedObject = this.props.solved[i];
       for (var key in solvedObject) {
         if(key === "points") {
           totalPoints += solvedObject[key];
@@ -40,22 +43,37 @@ class Stats extends Component {
     this.setState({points: totalPoints});
   }
 
-    render() {
-      const solved = this.props.problemReducer.solved;
-      const user = this.props.problemReducer.user;
+  randomIcon = () => {
+    var iconUrl = this.state.littleDudes[Math.floor(Math.random() * this.state.littleDudes.length)]
+    this.setState({userIconUrl: iconUrl.profile_icon}, this.setUserIcon)
+  }
 
+  setUserIcon = () => {
+    var url = this.state.userIconUrl
+    axios.post('/api/addIcon', {url})
+  }
+
+    render() {
+      
         return (
           <div className="stats">
             <div>
-              <img src={iconFive} alt='pic'/>
-              <h3>{user.username}</h3>
+              {this.props.user.profile_icon ?
+                <img src= {this.props.user.profile_icon} alt='icon'/> :
+                <div>
+                  <img src={iconFive} alt='pic'/>
+                  <button onClick ={()=> {this.randomIcon()}}>Get Random Icon</button>
+                </div>}
+
+              <h3>{this.props.user.username}</h3>
+              
             </div>
             <div className="statsDisplay">
               <h2>Stats</h2>
               <h4>Meters Ran</h4>
               <p>{this.state.points}m</p>
               <h4>Finished Sprints</h4>
-              <p>{solved.length}</p>
+              <p>{this.props.solved.length}</p>
             </div>
           </div>
         )
@@ -64,8 +82,11 @@ class Stats extends Component {
 
 
 function mapStateToProps(state) {
-    return state
-
+  const {problemReducer} = state
+    return {
+      user: problemReducer.user,
+      solved: problemReducer.solved
+    }
   }
 
-export default connect( mapStateToProps, { getSolvedProblems } )( Stats );
+export default connect( mapStateToProps, { getSolvedProblems, getUser } )( Stats );

@@ -15,6 +15,7 @@ const ViewProblem = require('./Controllers/ViewProblem')
 const GetProblems = require('./Controllers/GetProblems');
 const AddProblem = require('./Controllers/AddProblem');
 const GetSolved = require('./Controllers/GetSolved');
+const Misc = require('./Controllers/MiscController')
 require('dotenv').config();
 const path = require('path');
 
@@ -144,6 +145,11 @@ app.get('/api/getProblem/:problem_id', ViewProblem.get)
 app.get('/api/getProblems', GetProblems.get)
 app.post('/api/addProblem', AddProblem.addProblem)
 app.get('/api/getSolvedProblems/:user_id' ,GetSolved.get)
+
+// MISC ENDPOINTS
+app.get('/api/getDudes', Misc.getDudes)
+app.post('/api/addIcon', Misc.addIcon)
+app.get('/api/getUser', Misc.getUser)
 
 
 // SERVER LISTEN
