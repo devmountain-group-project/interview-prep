@@ -6,11 +6,12 @@ class UnitTestExample extends Component {
   render() {
     return (
       <div>
-        <div>
+        <div className="buttonContain">
           <Link to={'/submission'}><button className="backButton">Back to Submission Page</button></Link>
+          <a href="https://jasmine.github.io/tutorials/your_first_suite" target="_blank"><button className="docsButton">More info about writing unit tests</button></a>
         </div>
           <div className="unitTestWords">
-            <h2> Example of how a test file should be written. </h2>
+            <h2> Example tests: </h2>
           </div>
             <div className='testExample'>
               <pre>
@@ -23,6 +24,28 @@ class UnitTestExample extends Component {
                 </code>
               </pre>
             </div>
+              <div className='testExample'>
+                <pre>
+                  <code>
+                      {`describe('Is Isogram', function() {
+                        it('Should determine if a string is an Isogram', function() {
+                          expect(isIsogram(true)).toEqual(true) && expect(isIsogram(false)).toEqual(false);
+                        });
+                      });`}
+                  </code>
+                </pre>
+              </div>
+                <div className='testExample'>
+                <pre>
+                  <code>
+                      {`describe('To Camel Case', function() {
+                        it('Should convert dashes/underscores to camel case', function() {
+                          expect(toCamelCase('here_is-this_string')).toBe('hereIsThisString');
+                        });
+                      });`}
+                  </code>
+                </pre>
+              </div>
       </div>
     )
   }
