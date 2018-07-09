@@ -113,6 +113,7 @@
 .title-tab-off {
   border-top: 1px solid #3a3a3a;
   border-right: 1px solid #3a3a3a;
+  border-left: 1px solid #3a3a3a;
   border-color: #DEE2E3;
   color: #3a3a3a;
   height: 48px;

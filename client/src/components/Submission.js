@@ -17,7 +17,7 @@ class Submission extends Component {
         this.state = {
             testUrl: '',
             fileToTest: '',
-            difficulty: ['100 meters', '500 meters', '1000 meters'],
+            difficulty: ['100', '500', '1000'],
             name: '',
             instructions: '',
         }
@@ -66,7 +66,7 @@ class Submission extends Component {
                         <input type='radio' value={this.state.difficulty[0]} onChange={ (e) => this.setState({ difficulty: e.target.value })}></input>100 Meters<br />
                         <input type='radio' value={this.state.difficulty[1]} onChange={ (e) => this.setState({ difficulty: e.target.value })}></input>500 Meters<br />
                         <input type='radio' value={this.state.difficulty[2]} onChange={ (e) => this.setState({ difficulty: e.target.value })}></input>1000 Meters<br />
-                        <p> Problem Instrctions: </p>
+                        <p> Problem Instructions: </p>
                         <textarea name="description" value={this.state.instructions} onChange={ (e) => this.setState({ instructions: e.target.value })}></textarea>
                         <div>
                            <button className="submitButton" onClick={this.handleAddProblem}>Submit Problem</button>

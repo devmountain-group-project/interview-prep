@@ -25,7 +25,8 @@ class ProblemView extends Component {
         retrievedFile: false,
         showResults: false,
         results: {},
-        toggleTabs: false
+        toggleTabs: false,
+        activeTab: false
     }
   }
 
@@ -52,15 +53,17 @@ class ProblemView extends Component {
     componentDidMount = () => {
         this.props.getProblemByID(this.props.match.params.problem_id)
     }
-
-    // DELETES TEMP FILE WITH FS
-    deleteFile = () => {
-        axios.delete('/api/deleteFile')
-    }
+  
 
     // FINAL SUBMISSION ONCE TESTS HAVE PASSED
     submit = () => {
-        this.setState({finalSubmit: false}, this.deleteFile())
+        const problem_id = this.props.state.problemReducer.problem[0].id
+        const difficulty = this.props.state.problemReducer.problem[0].difficulty
+        const solution = this.state.code
+        axios.post('/api/completeProblem', {problem_id, difficulty, solution}).then(res=> {
+            this.setState({finalSubmit: false})
+        })
+       
     }
 
     // DISPLAYS TEST RESULTS
@@ -105,13 +108,14 @@ class ProblemView extends Component {
         axios.post('/api/writeTestFile', {content: this.state.testFile})
     }
 
-    handleToggleTab =() => {
-        if(!this.state.toggleTabs){
-            this.setState({toggleTabs: true})
-            
-        }else(
-            this.setState({toggleTabs: false})
-        )    
+    handleToggleTabTrue =() => {
+        
+        this.setState({toggleTabs: false , activeTab: false})
+
+    }
+    handleToggleTabFalse = () => {
+        
+        this.setState({toggleTabs: true , activeTab: true})
     }
 
     checkFinalSubmit = () => {
@@ -160,7 +164,7 @@ class ProblemView extends Component {
                         <h3>{this.props.state.problemReducer.problem[0].difficulty} meters</h3>
                     </div>
                     <div className='problem-tabs'>
-                        <div className='title-tab' onClick={()=> this.handleToggleTab()}>Instructions</div><div className='title-tab-off' onClick={()=> this.handleToggleTab()}>Output</div>
+                        <div className={!this.state.activeTab ? 'title-tab' : 'title-tab-off'} onClick={()=> this.handleToggleTabTrue()}>Instructions</div><div className={this.state.activeTab ? 'title-tab' : 'title-tab-off'} onClick={()=> this.handleToggleTabFalse()}>Output</div>
                     </div>
                     {this.state.toggleTabs ?
                         <div className = 'output instructions'>
@@ -180,7 +184,7 @@ class ProblemView extends Component {
                   <div className= 'code-header'>
                       <div className='final-submit'>
                         {this.state.finalSubmit ?
-                          <button onClick={() =>this.submit()}>Final Submission</button> :
+                          <Link to={'/dashboard'}><button onClick={() =>this.submit()}>Final Submission</button></Link> :
                         null}
                         <img className="flag" src={flag} alt="pic"/>
                       </div>
