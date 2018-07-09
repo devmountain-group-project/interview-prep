@@ -1,4 +1,3 @@
-var fizzBuzz = require('./index')
 
 describe('FizzBuzz', function(){
     it('Should say buzz in place of 100', function(){

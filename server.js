@@ -145,6 +145,7 @@ app.get('/api/getProblem/:problem_id', ViewProblem.get)
 app.get('/api/getProblems', GetProblems.get)
 app.post('/api/addProblem', AddProblem.addProblem)
 app.get('/api/getSolvedProblems/:user_id' ,GetSolved.get)
+app.post('/api/completeProblem', AddProblem.completeProblem)
 
 // MISC ENDPOINTS
 app.get('/api/getDudes', Misc.getDudes)
