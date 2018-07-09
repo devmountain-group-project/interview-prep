@@ -8,7 +8,7 @@ class UnitTestExample extends Component {
       <div>
         <div className="buttonContain">
           <Link to={'/submission'}><button className="backButton">Back to Submission Page</button></Link>
-          <a href="https://jasmine.github.io/tutorials/your_first_suite" target="_blank"><button className="docsButton">More info about writing unit tests</button></a>
+          <a href="https://jasmine.github.io/tutorials/your_first_suite" target="_blank" rel="noopener noreferrer"><button className="docsButton">More info about writing unit tests</button></a>
         </div>
           <div className="unitTestWords">
             <h2> Example tests: </h2>

@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import '../css/main.css'
 import '../css/header.css'
 const logo = require('./../css/images/shoe.png');
-const icon = require('./../css/images/shoe-icon.png');
+// const icon = require('./../css/images/shoe-icon.png');
 
 class Header extends Component {
 
@@ -12,8 +12,8 @@ class Header extends Component {
             <div className="nav_contain">
                 <div className="nav">
                 <div className='header'>
-                <img src={icon} />
-                <img src={logo}/>
+                {/* <img src={icon} /> */}
+                <img src={logo} alt="pic"/>
                 <a href="http://localhost:3005/auth/logout"><button>Logout</button></a>
                 </div>
                 </div>

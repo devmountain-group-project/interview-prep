@@ -66,11 +66,9 @@ class ProblemView extends Component {
     // DISPLAYS TEST RESULTS
     resultsToDisplay =(results) =>{
         const arr = []
-        let failed = 0
         for  (var key in results){
           const suite = results[key]
           suite.specs.map((spec, index)=>{
-            const {description} = spec
             return (
               arr.push(spec)
             )
@@ -123,7 +121,6 @@ class ProblemView extends Component {
         for  (var key in results){
             const suite = results[key]
             suite.specs.map((spec, index)=>{
-              const {description} = spec
               return (
                 arr.push(spec)
               )
@@ -141,7 +138,7 @@ class ProblemView extends Component {
     }
 
     render(){
-      const { id, problem } = this.props;
+    //   const { id, problem } = this.props;
       if(this.props.state.problemReducer && this.props.state.problemReducer.problem[0]) {
           if(!this.state.retrievedFile) {
             this.getFile()
@@ -154,7 +151,7 @@ class ProblemView extends Component {
 
             <div className= 'problem-view'>
                 <div className='exit'>
-                <Link to={'/dashboard'}><img src={exit}/></Link>
+                <Link to={'/dashboard'}><img src={exit} alt="pic"/></Link>
                 </div>
                 <div className= 'left-container'>
 
@@ -181,12 +178,11 @@ class ProblemView extends Component {
 
                 <div className= 'code-editor'>
                   <div className= 'code-header'>
-                    <div className='title-tab'>Solution</div>
                       <div className='final-submit'>
                         {this.state.finalSubmit ?
                           <button onClick={() =>this.submit()}>Final Submission</button> :
                         null}
-                        <img src={flag}/>
+                        <img src={flag} alt="pic"/>
                       </div>
                   </div>
                     {/* THIS IS THE RUNKIT COMPONENT */}
@@ -201,7 +197,7 @@ class ProblemView extends Component {
         )
       } else {
         return <div className="loading">
-                  <img src={loading}/>
+                  <img src={loading} alt="pic"/>
                   <p>Loading...</p>
                 </div>
       }
