@@ -1,11 +1,11 @@
 .stats {
-  width: 25vw;
-  height: 75vh;
+  width: 300px;
+  height: 500px;
   display: flex;
   flex-direction: column;
 }
 
-.stats div {
+.stats-box {
   height: 48%;
   width: 90%;
   background-color: #56D394;
@@ -18,8 +18,16 @@
   box-sizing: border-box;
   font-family: Dosis;
 }
+.stats-box h3 {
+  margin: 0
+}
 
-.stats img{
+.little-dude{
+  height:150px;
+  width:120px;
+}
+
+.icon{
   height:120px;
   width:120px;
 }
@@ -32,13 +40,14 @@
 
 .statsDisplay {
   display: flex;
-  flex-direction: row;
-  padding: 0px;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px
 
 }
 
 .statsDisplay h2 {
-  margin: 0;
+  margin-top: 10px;
 }
 
 .statsDisplay h4 {
@@ -46,5 +55,17 @@
 }
 
 .statsDisplay p {
-  font-size: 50px;
+  font-size: 30px;
+}
+
+.random-icon-button {
+  /* height: 50px; */
+  /* width: 100px; */
+  padding: 10px;
+  margin: 12px;  
+  border-color: #3a3a3a;
+  color: #3a3a3a;
+  font-family: Dosis;
+  font-size: 12px;
+  cursor: pointer;
 }

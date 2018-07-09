@@ -16,7 +16,6 @@ class Stats extends Component {
     super(props)
 
     this.state = {
-      points: 0,
       userIconUrl: '',
       littleDudes: [],
     }
@@ -24,7 +23,6 @@ class Stats extends Component {
  
   //THIS DISPLAYS USERNAME OF LOGGED IN USER
   componentDidMount() {
-    this.addPoints();
     this.props.getUser()
     axios.get('/api/getDudes').then(res=> {
       this.setState({littleDudes: res.data})
@@ -43,7 +41,9 @@ class Stats extends Component {
         }
       }
     }
-    this.setState({points: totalPoints});
+    return(
+      <h3>{totalPoints}</h3>
+    )
   }
 
   randomIcon = () => {
@@ -65,21 +65,21 @@ class Stats extends Component {
       
         return (
           <div className="stats">
-            <div>
+            <div className ="stats-box">
               {this.props.user.profile_icon ?
-                <img src= {this.props.user.profile_icon} alt='icon'/> :
-                <div>
-                  <img src={iconFive} alt='pic'/>
-                  <button onClick ={()=> {this.randomIcon()}}>Get Random Icon</button>
+                <img className='little-dude' src= {this.props.user.profile_icon} alt='icon'/> :
+                <div className= 'statsDisplay'>
+                  <img className='icon' src={iconFive} alt='pic'/>
+                  <button className = "random-icon-button" onClick ={()=> {this.randomIcon()}}>Get Random Icon</button>
                 </div>}
 
               <h3>{this.props.user.username}</h3>
               
             </div>
-            <div className="statsDisplay">
+            <div className="statsDisplay stats-box">
               <h2>Stats</h2>
               <h4>Meters Ran</h4>
-              <p>{this.state.points}m</p>
+              <p>{this.addPoints()}</p>
               <h4>Finished Sprints</h4>
               <p>{this.props.solved.length}</p>
             </div>
