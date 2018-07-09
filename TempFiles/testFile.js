@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 const file = require("./problemFile.js")
 
 describe('Multiply', function() {
@@ -7,4 +5,3 @@ describe('Multiply', function() {
     expect(multiply(5, 5)).toBeCloseTo(25);
   });
 });
->>>>>>> Stashed changes

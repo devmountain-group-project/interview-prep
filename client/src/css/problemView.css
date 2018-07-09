@@ -27,6 +27,10 @@
   background-color: #F8F8F8;
 }
 
+.output {
+  font-size: 13px;
+}
+
 .spec-runner {
   height: 75vh;
 }
@@ -34,6 +38,7 @@
 .code-editor {
   width: 50vw;
   height: 75vh;
+  margin-top: 35px;
 }
 
 .loading {
@@ -77,7 +82,10 @@
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 20px;
+}
 
+.flag {
+  margin-left: 550px;
 }
 
 .problem-header {

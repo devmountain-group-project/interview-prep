@@ -163,7 +163,7 @@ class ProblemView extends Component {
                         <div className='title-tab' onClick={()=> this.handleToggleTab()}>Instructions</div><div className='title-tab-off' onClick={()=> this.handleToggleTab()}>Output</div>
                     </div>
                     {this.state.toggleTabs ?
-                        <div className = 'instructions'>
+                        <div className = 'output instructions'>
                             {/* DISPLAYS THE JASMINE TEST RESULTS */}
                             {this.state.results ?
                                 <div>
@@ -182,14 +182,14 @@ class ProblemView extends Component {
                         {this.state.finalSubmit ?
                           <button onClick={() =>this.submit()}>Final Submission</button> :
                         null}
-                        <img src={flag} alt="pic"/>
+                        <img className="flag" src={flag} alt="pic"/>
                       </div>
                   </div>
                     {/* THIS IS THE RUNKIT COMPONENT */}
                     <Embed onLoad = {(e) => {this.storeRef(e)}} onEvaluate={() => {
                         this.getNotebook()
 
-                    }} minHeight='500px'/>
+                    }} minHeight='481px'/>
 
                 </div>
             </div>
