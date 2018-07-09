@@ -47,16 +47,10 @@ class Stats extends Component {
   }
 
   randomIcon = () => {
-<<<<<<< Updated upstream
-    console.log('these are the little dudes', this.state.littleDudes)
-    var iconUrl = this.state.littleDudes[Math.floor(Math.random() * this.state.littleDudes.length)]
-    console.log('this is the iconUrl', iconUrl)
-=======
     axios.get('/api/getDudes').then(res => {
       this.setState({littleDudes: res.data})
     }).then(res => {
       var iconUrl = this.state.littleDudes[Math.floor(Math.random() * this.state.littleDudes.length)]
->>>>>>> Stashed changes
     this.setState({userIconUrl: iconUrl.profile_icon}, this.setUserIcon)
     })
     
