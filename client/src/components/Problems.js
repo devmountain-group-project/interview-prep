@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import './../css/problems.css';
 
-import{getProblems, allProblems} from './../redux/reducers/problemReducer.js'
+import{getProblems} from './../redux/reducers/problemReducer.js'
 
 class Problems extends Component {
 

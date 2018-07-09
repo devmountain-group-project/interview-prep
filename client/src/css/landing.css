@@ -33,7 +33,7 @@ body {
  .middle-text {
     color: black;
     font-family: dosis;
-    font-size: 2em;
+    font-size: 24px;
 
  }
 
@@ -51,7 +51,6 @@ body {
     text-align: center;
     margin: auto;
     justify-content: center;
-    
   }
   .button1 {
       padding: 5px 18px;
@@ -60,8 +59,7 @@ body {
       border-radius: 5px;
       border: solid 1px black;
       background-color: rgba(255,255,255, .6);
-
-      
+      cursor: pointer;
   }
   .shoe {
       height: 160px;

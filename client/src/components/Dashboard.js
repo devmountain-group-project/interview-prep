@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 import Header from './Header';
 import Nav from './Nav';
 import Stats from './Stats';
-import axios from 'axios';
 import './../css/dashboard.css';
 
-import{getSolvedProblems, solved, getProblems, allProblems, getUser, user} from './../redux/reducers/problemReducer.js'
+import{getSolvedProblems, getProblems, getUser} from './../redux/reducers/problemReducer.js'
 
 
 
@@ -24,7 +23,7 @@ class Dashboard extends Component {
     render(){
       const solved = this.props.problemReducer.solved;
       const allProblems = this.props.problemReducer.allProblems;
-      const user = this.props.problemReducer.user;
+      // const user = this.props.problemReducer.user;
         return(
             <div className="background">
                 <div>
