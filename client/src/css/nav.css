@@ -12,9 +12,20 @@
   padding-left: 15px;
 }
 
-.tabs div {
+.tab {
   height: 60px;
   width: 50%;
+  display: flex;
+  flex-direction: row;
+  font-family: Dosis;
+  align-items: center;
+  margin: 10px;
+}
+
+.tab-on {
+  height: 60px;
+  width: 50%;
+  background-color: aqua;
   display: flex;
   flex-direction: row;
   font-family: Dosis;
