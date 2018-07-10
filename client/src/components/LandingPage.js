@@ -20,7 +20,7 @@ class LandingPage extends Component {
                             Welcome to CodeSprint, the best javascript interview prep tool on the net. Here you can challenge yourself to solve "toy problems" similar to ones you might be asked to solve in a technical coding interview.
                             </p>
                             <div className="button-contain">
-                                <a href="http://localhost:3005/auth"><button className="button1">Login</button></a>
+                                <a href={process.env.REACT_APP_AUTH_LOGIN}><button className="button1">Login</button></a>
                             </div>
                     </div>
 

@@ -14,7 +14,7 @@ class Header extends Component {
                 <div className='header'>
                 {/* <img src={icon} /> */}
                 <img src={logo} alt="pic"/>
-                <a href="http://localhost:3005/auth/logout"><button>Logout</button></a>
+                <a href={process.env.REACT_APP_AUTH_LOGOUT}><button>Logout</button></a>
                 </div>
                 </div>
             </div>
