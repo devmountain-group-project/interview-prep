@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/devmountain-group-project/interview-prep#readme",
   "dependencies": {
-    "auth0": "^2.9.1",
+    "auth0": "^2.27.1",
     "aws-sdk": "^2.254.1",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
